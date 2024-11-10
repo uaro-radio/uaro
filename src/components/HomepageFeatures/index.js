@@ -4,33 +4,34 @@ import styles from './styles.module.css';
 
 const FeatureList = [
   {
-    title: 'Easy to Use',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    title: 'Мета діяльності',
+    Svg: require('@site/static/img/uaro_ua.svg').default,
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+          Метою діяльності є забезпечення та захист спільних інтересів громадян України у сфері аматорського
+          радіозв'язку та радіоспорту. Основними цілями організації є забезпечення творчої аматорської некомерційної
+          діяльності своїх членів в галузі радіо, сприяння розвитку радіоспорту, наукової та технічної творчості.
       </>
     ),
   },
   {
-    title: 'Focus on What Matters',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
+    title: 'Приєднатися до спільноти',
+    Svg: require('@site/static/img/uaro_ua.svg').default,
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        <img src="/img/telegram.png" style={{ width: '100%' }} />
       </>
     ),
   },
   {
-    title: 'Powered by React',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
+    title: 'Що корисного можна дізнатись на сайті',
+    Svg: require('@site/static/img/uaro_ua.svg').default,
     description: (
-      <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
-      </>
+        <>
+            Новини, література, інструкції, статті
+            <img src="/img/radio.jpg" style={{width: '100%'}}/>
+            <i>Фото належить автору із спільноти.</i>
+        </>
     ),
   },
 ];

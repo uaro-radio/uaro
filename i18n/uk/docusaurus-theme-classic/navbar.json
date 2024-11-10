@@ -1,0 +1,22 @@
+{
+  "title": {
+    "message": "UARO",
+    "description": "The title in the navbar"
+  },
+  "logo.alt": {
+    "message": "UARO",
+    "description": "The alt text of navbar logo"
+  },
+  "item.label.Корисні матеріали": {
+    "message": "Корисні матеріали",
+    "description": "Navbar item with label Корисні матеріали"
+  },
+  "item.label.Новини": {
+    "message": "Новини",
+    "description": "Navbar item with label Новини"
+  },
+  "item.label.GitHub": {
+    "message": "GitHub",
+    "description": "Navbar item with label GitHub"
+  }
+}
