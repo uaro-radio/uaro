@@ -12,21 +12,18 @@ function HomepageHeader() {
   return (
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
         <div className="container">
-                <div className="float-child-left">
-                    <img src="/img/logo.png" alt="" style={{width: '40%'}}/>
-                </div>
 
-                <div className="float-child-right">
-                    <Heading as="h1" className="hero__title">
-                        {siteConfig.title}
-                    </Heading>
-                    <p className="hero__subtitle">{siteConfig.tagline}</p>
-                    <div>
-                        <b>
-                            Громадська організація "Оператори аматорських радіостанцій України".
-                        </b>
-                    </div>
-                </div>
+            {/*<Heading as="h1" className="hero__title">*/}
+            {/*    /!*{siteConfig.title}*!/*/}
+
+            {/*</Heading>*/}
+            <img src="/img/logo.png" alt="" style={{width: '7%'}}/>
+            <p className="hero__subtitle">{siteConfig.tagline}</p>
+            <div>
+                <b>
+                    Громадська організація "Оператори аматорських радіостанцій України".
+                </b>
+            </div>
         </div>
     </header>
   );
@@ -38,10 +35,10 @@ export default function Home() {
         <Layout
             title={`Вас вітає ${siteConfig.title}`}
             description="Оператори аматорських радіостанцій України">
-      <HomepageHeader />
-      <main>
-        <HomepageFeatures />
-      </main>
-    </Layout>
-  );
+            <HomepageHeader/>
+            <main>
+                <HomepageFeatures/>
+            </main>
+        </Layout>
+    );
 }
