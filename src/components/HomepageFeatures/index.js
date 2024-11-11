@@ -19,18 +19,19 @@ const FeatureList = [
     Svg: require('@site/static/img/uaro_ua.svg').default,
     description: (
       <>
-        <img src="/img/telegram.png" style={{ width: '100%' }} />
+        <img src="/img/telegram.png" style={{ width: '75%' }}  alt=''/>
       </>
     ),
   },
   {
-    title: 'Що корисного можна дізнатись на сайті',
+    title: 'Проходження',
     Svg: require('@site/static/img/uaro_ua.svg').default,
     description: (
         <>
-            Новини, література, інструкції, статті
-            <img src="/img/radio.jpg" style={{width: '100%'}}/>
-            <i>Фото належить автору із спільноти.</i>
+            {/*Новини, література, інструкції, статті*/}
+            {/*<img src="/img/radio.jpg" style={{width: '100%'}} alt=''/>*/}
+            {/*<i>Фото належить автору із спільноти.</i>*/}
+            <img src="https://www.hamqsl.com/solarvhf.php" alt=''/>
         </>
     ),
   },

@@ -12,16 +12,21 @@ function HomepageHeader() {
   return (
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
         <div className="container">
+                <div className="float-child-left">
+                    <img src="/img/logo.png" alt="" style={{width: '40%'}}/>
+                </div>
 
-            <Heading as="h1" className="hero__title">
-                {siteConfig.title}
-            </Heading>
-            <p className="hero__subtitle">{siteConfig.tagline}</p>
-            <div>
-                <b>
-                    Громадська організація "Оператори аматорських радіостанцій України".
-                </b>
-            </div>
+                <div className="float-child-right">
+                    <Heading as="h1" className="hero__title">
+                        {siteConfig.title}
+                    </Heading>
+                    <p className="hero__subtitle">{siteConfig.tagline}</p>
+                    <div>
+                        <b>
+                            Громадська організація "Оператори аматорських радіостанцій України".
+                        </b>
+                    </div>
+                </div>
         </div>
     </header>
   );
@@ -31,8 +36,8 @@ export default function Home() {
     const {siteConfig} = useDocusaurusContext();
     return (
         <Layout
-            title={`Hello from ${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />">
+            title={`Вас вітає ${siteConfig.title}`}
+            description="Оператори аматорських радіостанцій України">
       <HomepageHeader />
       <main>
         <HomepageFeatures />
