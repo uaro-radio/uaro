@@ -19,6 +19,7 @@ const FeatureList = [
     Svg: require('@site/static/img/uaro_ua.svg').default,
     description: (
       <>
+        <a href="https://t.me/Ukraine_Amateur_Radio_Operators" target='_blank'>Ukraine Amateur Radio Operators</a>
         <img src="/img/telegram.png" style={{ width: '75%' }}  alt=''/>
       </>
     ),
