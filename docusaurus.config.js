@@ -85,7 +85,7 @@ const config = {
           {to: '/docs/tutorial-for-beginners', label: 'Довідник початківця', position: 'left'},
           {to: '/blog', label: 'Новини', position: 'left'},
           {to: '/about', label: 'Про нас', position: 'left'},
-          {to: '/charter', label: 'Статут', position: 'left'},
+          {to: '/charter', label: 'Статут організації', position: 'left'},
           {to: '/partners', label: 'Партнерські програми', position: 'left'},
           {
             href: 'https://github.com/uaro-radio',
