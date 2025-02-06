@@ -1,5 +1,5 @@
 import { useState} from 'react';
-import AntennaImage from '@site/static/img/antenna.png';
+import AntennaImage from '@site/static/img/flower_pot.jpg';
 
 export default function Calculator({image}) {
     const [workingFrequency, setWorkingFrequency] = useState('145');
@@ -38,7 +38,6 @@ export default function Calculator({image}) {
                                 </td>
                                 <td >МГц</td>
                                 <td rowSpan={8} bgcolor="white">
-                                    <p style={{color: "black", textAlign: "center", fontWeight: "bold"}}>Приклад розрахунку на 150МГц</p>
                                     <img src={AntennaImage} alt="test image" height="400pt" width="300pt"/>
                                 </td>
                             </tr>
@@ -73,14 +72,14 @@ export default function Calculator({image}) {
                                 <td >см</td>
                             </tr>
                             <tr>
-                                <td >Верхній випромінювач</td>
+                                <td >Верхнє плече</td>
                                 <td >
                                     <input value={upperRadiator}/>
                                 </td>
                                 <td >см</td>
                             </tr>
                             <tr>
-                                <td >Нижній випромінювач</td>
+                                <td >Нижнє плече</td>
                                 <td >
                                     <input value={lowerRadiator}/>
                                 </td>
