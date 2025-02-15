@@ -34,6 +34,10 @@ const config = {
     locales: ['en', 'uk'],
   },
 
+  plugins: [
+    'plugin-image-zoom'
+  ],
+
   presets: [
     [
       'classic',
@@ -69,6 +73,17 @@ const config = {
     ({
       // Replace with your project's social card
       image: 'img/uaro-social-card-black-transparent.jpg',
+      imageZoom: {
+        // CSS selector to apply the plugin to, defaults to '.markdown img'
+        selector: '.markdown img',
+        // Optional medium-zoom options
+        // see: https://www.npmjs.com/package/medium-zoom#options
+        options: {
+          margin: 24,
+          background: 'rgba(0,0,0,0.71)',
+          scrollOffset: 0,
+        },
+      },
       navbar: {
         title: 'UARO',
         logo: {
