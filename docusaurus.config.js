@@ -97,7 +97,7 @@ const config = {
             position: 'left',
             label: 'Корисні матеріали',
           },
-          {to: '/docs/tutorial-for-beginners', label: 'Довідник початківця', position: 'left'},
+          // {to: '/docs/tutorial-for-beginners', label: 'Довідник початківця', position: 'left'},
           {to: '/blog', label: 'Новини', position: 'left'},
           {to: '/about', label: 'Про нас', position: 'left'},
           {to: '/charter', label: 'Статут організації', position: 'left'},
