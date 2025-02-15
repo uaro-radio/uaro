@@ -121,7 +121,7 @@ const config = {
             items: [
               {
                 label: 'Корисні матеріали',
-                to: '/docs/intro',
+                to: '/docs/tutorial-for-beginners',
               },
             ],
           },
