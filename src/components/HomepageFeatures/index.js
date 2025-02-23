@@ -5,7 +5,7 @@ import styles from './styles.module.css';
 const FeatureList = [
   {
     title: 'Мета діяльності',
-    Svg: require('@site/static/img/uaro_ua.svg').default,
+    // Svg: require('@site/static/img/uaro_ua.svg').default,
     description: (
       <>
           Метою діяльності є забезпечення та захист спільних інтересів громадян України у сфері аматорського
@@ -16,7 +16,7 @@ const FeatureList = [
   },
   {
     title: 'Приєднатися до спільноти',
-    Svg: require('@site/static/img/radio.svg').default,
+    // Svg: require('@site/static/img/radio.svg').default,
     description: (
       <>
         <a href="https://t.me/Ukraine_Amateur_Radio_Operators" target='_blank'>Ukraine Amateur Radio Operators</a>
@@ -26,7 +26,7 @@ const FeatureList = [
   },
   {
     title: 'Проходження',
-    Svg: require('@site/static/img/ukraine.svg').default,
+    // Svg: require('@site/static/img/ukraine.svg').default,
     description: (
         <>
             {/*Новини, література, інструкції, статті*/}
