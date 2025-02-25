@@ -144,7 +144,7 @@ Meshtastic **не є** LoRaWAN. Meshtastic використовує повний
 
 #### Прошивка через esptool (складний варіант)
 
-Процес збірки і сам процес описаний **UT3UMS** тут: [tbeam-firmware-ut3ums.md](/docs/hardware/tbeam-firmware-ut3ums)
+Процес збірки і сам процес описаний **UT3UMS** тут: [tbeam-firmware-ut3ums.md](https://ut3usw.dead.guru/docs/hardware/tbeam-firmware-ut3ums)
 
 Додатково при виборі цього способу прошивки модему можна реалізувати наступне:
 * Українська мова на екрані пристрою: [https://wikimesh.pp.ua/uk/налаштування/Увімкнення_Української_мови](https://wikimesh.pp.ua/uk/%D0%BD%D0%B0%D0%BB%D0%B0%D1%88%D1%82%D1%83%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F/%D0%A3%D0%B2%D1%96%D0%BC%D0%BA%D0%BD%D0%B5%D0%BD%D0%BD%D1%8F_%D0%A3%D0%BA%D1%80%D0%B0%D1%97%D0%BD%D1%81%D1%8C%D0%BA%D0%BE%D1%97_%D0%BC%D0%BE%D0%B2%D0%B8)
