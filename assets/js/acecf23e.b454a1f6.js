@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkuaro_org_ua=self.webpackChunkuaro_org_ua||[]).push([[1903],{1912:a=>{a.exports=JSON.parse('{"blogBasePath":"/blog","blogTitle":"Blog","authorsListPath":"/blog/authors"}')}}]);

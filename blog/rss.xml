@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xsl" href="rss.xsl"?>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+    <channel>
+        <title>UARO Blog</title>
+        <link>https://uaro.org.ua/blog</link>
+        <description>UARO Blog</description>
+        <lastBuildDate>Tue, 25 Feb 2025 00:00:00 GMT</lastBuildDate>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>https://github.com/jpmonette/feed</generator>
+        <language>uk</language>
+        <item>
+            <title><![CDATA[Засновники та учасники ГО «UARO» зустрілись з Андрієм Вікторовичем Лякіним (UT2UB)]]></title>
+            <link>https://uaro.org.ua/blog/meeting</link>
+            <guid>https://uaro.org.ua/blog/meeting</guid>
+            <pubDate>Tue, 25 Feb 2025 00:00:00 GMT</pubDate>
+            <description><![CDATA[Засновники та учасники ГО «UARO» зібралися в атмосфері невимушеної теплоти для зустрічі зі справжнім майстром радіоаматорства]]></description>
+            <content:encoded><![CDATA[<p>Засновники та учасники ГО «UARO» зібралися в атмосфері невимушеної теплоти для зустрічі зі справжнім майстром радіоаматорства
+– Андрієм Вікторовичем Лякіним (UT2UB), головою Київської КТК.</p>
+<p><img decoding="async" loading="lazy" alt="ЮАРО" src="https://uaro.org.ua/assets/images/meeting-1e02ee19377dd5c869b1bd8ad64de281.png" width="3313" height="2003" class="img_ev3q"></p>
+<div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>Позивні учасників на фото</div><div class="admonitionContent_BuS1"><p>UR4CTA, UT2UB, UT8UP, UT3UTX, UT3UUE, UR7HNF, UR4USB, UT3UUK</p></div></div>
+<p>Під час зустрічі він щиро поділився історіями зі своєї багаторічної кар'єри, які надихнули присутніх. Обговорення торкнулося перспектив подальшого розвитку організації, ефективних методів залучення молоді до аматорського радіозв’язку та амбітних планів створення колективної радіостанції на базі ГО.</p>
+<p>Від імені голови та всього колективу Андрію Вікторовичу було урочисто вручено почесну подяку за його невтомну відданість справі, що надихає нові покоління радіоаматорів.</p>
+<div style="width:150pt"><p><img decoding="async" loading="lazy" alt="ЮАРО" src="https://uaro.org.ua/assets/images/meeting2-17caaccb9b8ed3f39307d7af98252666.jpg" width="614" height="840" class="img_ev3q"></p></div>]]></content:encoded>
+            <category>UARO</category>
+        </item>
+        <item>
+            <title><![CDATA[Навчальний посібник для початківців.]]></title>
+            <link>https://uaro.org.ua/blog/tutorial-for-beginners</link>
+            <guid>https://uaro.org.ua/blog/tutorial-for-beginners</guid>
+            <pubDate>Sat, 30 Nov 2024 00:00:00 GMT</pubDate>
+            <description><![CDATA[Розпочата робота над "Навчальним посібником для початківців."]]></description>
+            <content:encoded><![CDATA[<p>Розпочата робота над "Навчальним посібником для початківців."
+<a href="https://uaro.org.ua/docs/tutorial-for-beginners" target="_blank" rel="noopener noreferrer">Довідник початківця</a></p>
+<p>Хочемо привітати відвідувачів сайту спільноти.
+В першу чергу цей посібник призначений для тих, хто тільки починає свій шлях в радіо.
+Будемо раді будь-яким доповнення і корективам.
+Можна прямо кидати пул у відповідний репозиторій даного сайту на <a href="https://github.com/uaro-radio/uaro" target="_blank" rel="noopener noreferrer">GitHub</a>
+Або залишайте коментарі в нашому ком'юніті <a href="https://t.me/Ukraine_Amateur_Radio_Operators" target="_blank" rel="noopener noreferrer">UARO</a>.</p>]]></content:encoded>
+            <category>UARO</category>
+        </item>
+        <item>
+            <title><![CDATA[Оператори аматорських радіостанцій України]]></title>
+            <link>https://uaro.org.ua/blog/welcome</link>
+            <guid>https://uaro.org.ua/blog/welcome</guid>
+            <pubDate>Sun, 10 Nov 2024 00:00:00 GMT</pubDate>
+            <description><![CDATA[Перший тестовий пост сайту спільноти й громадської організації]]></description>
+            <content:encoded><![CDATA[<p>Перший тестовий пост сайту спільноти й громадської організації</p>
+<p>В цьому розділі будемо викладати цікаві новини дільності Громадської організації "Оператори аматорських радіостанцій України".</p>
+<p><img decoding="async" loading="lazy" alt="Docusaurus Plushie" src="https://uaro.org.ua/assets/images/uaro-ua-e6a0a9b50906a7331b7eb7b4f422b9eb.jpg" width="640" height="640" class="img_ev3q"></p>]]></content:encoded>
+            <category>UARO</category>
+        </item>
+    </channel>
+</rss>
