@@ -98,10 +98,11 @@ const config = {
             label: 'Корисні матеріали',
           },
           // {to: '/docs/tutorial-for-beginners', label: 'Довідник початківця', position: 'left'},
+          {to: '/docs/calculators', label: 'Калькулятори', position: 'left'},
+          {to: '/charter', label: 'Статут організації', position: 'left'},
+          {to: '/awards', label: 'Відзнаки', position: 'left'},
           {to: '/blog', label: 'Новини', position: 'left'},
           {to: '/about', label: 'Про нас', position: 'left'},
-          {to: '/charter', label: 'Статут організації', position: 'left'},
-          {to: '/partners', label: 'Партнерські програми', position: 'left'},
           {
             href: 'https://github.com/uaro-radio',
             label: 'GitHub',
