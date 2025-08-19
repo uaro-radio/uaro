@@ -14,28 +14,16 @@ const FeatureList = [
       </>
     ),
   },
-  {
-    title: 'Приєднатися до спільноти',
-    // Svg: require('@site/static/img/radio.svg').default,
-    description: (
-      <>
-        <a href="https://t.me/Ukraine_Amateur_Radio_Operators" target='_blank'>Ukraine Amateur Radio Operators</a>
-        <img src="/img/telegram.png" style={{ width: '75%' }}  alt=''/>
-      </>
-    ),
-  },
-  {
-    title: 'Проходження',
-    // Svg: require('@site/static/img/ukraine.svg').default,
-    description: (
-        <>
-            {/*Новини, література, інструкції, статті*/}
-            {/*<img src="/img/radio.jpg" style={{width: '100%'}} alt=''/>*/}
-            {/*<i>Фото належить автору із спільноти.</i>*/}
-            <img src="https://www.hamqsl.com/solarvhf.php" alt=''/>
-        </>
-    ),
-  },
+  // {
+  //   title: 'Приєднатися до спільноти',
+  //   // Svg: require('@site/static/img/radio.svg').default,
+  //   description: (
+  //     <>
+  //       <a href="https://t.me/Ukraine_Amateur_Radio_Operators" target='_blank'>Ukraine Amateur Radio Operators</a>
+  //       <img src="/img/telegram.png" style={{ width: '75%' }}  alt=''/>
+  //     </>
+  //   ),
+  // },
 ];
 
 function Feature({Svg, title, description}) {
@@ -57,9 +45,10 @@ export default function HomepageFeatures() {
     <section className={styles.features}>
       <div className="container">
         <div className="row">
-          {FeatureList.map((props, idx) => (
-            <Feature key={idx} {...props} />
-          ))}
+            Метою діяльності є забезпечення та захист спільних інтересів громадян України у сфері аматорського
+            радіозв'язку та радіоспорту. Основними цілями організації є забезпечення творчої аматорської некомерційної
+            діяльності своїх членів в галузі радіо, сприяння розвитку радіоспорту, наукової та технічної творчості.
+
         </div>
       </div>
     </section>
