@@ -17,9 +17,8 @@ function HomepageHeader() {
             {/*    /!*{siteConfig.title}*!/*/}
 
             {/*</Heading>*/}
-            <img src="/img/logo.png" alt="" style={{width: '7%'}}/>
+            <img src="/img/new_logo.png" alt="" style={{width: '7%'}}/>
             <p className="hero__subtitle">{siteConfig.tagline}</p>
-            <p><b>"Об’єднані ефіром, єдні у спільноті!"</b></p>
             <div>
                 <b>
                 Громадська організація "Оператори аматорських радіостанцій України".

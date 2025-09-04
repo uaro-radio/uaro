@@ -101,6 +101,7 @@ const config = {
           {to: '/docs/calculators', label: 'Калькулятори', position: 'left'},
           {to: '/charter', label: 'Статут організації', position: 'left'},
           {to: '/awards', label: 'Відзнаки', position: 'left'},
+          {to: '/our_tutorials', label: 'Наші посібники', position: 'left'},
           {to: '/blog', label: 'Новини', position: 'left'},
           {to: '/about', label: 'Про нас', position: 'left'},
           {
