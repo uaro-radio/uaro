@@ -5,8 +5,8 @@ title: Наші посібники
 # Наші посібники
 
 <p align="center">
-<img src="static/img/our_tutorial_1.jpg" alt="1" width="300"/>
-<img src="static/img/our_tutorial_2.jpg" alt="2" width="300"/>
+<img src="img/our_tutorial_1.jpg" alt="1" width="300"/>
+<img src="img/our_tutorial_2.jpg" alt="2" width="300"/>
 </p>
 
 <p align="center">
