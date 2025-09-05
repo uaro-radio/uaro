@@ -5,8 +5,8 @@ title: Наші посібники
 # Наші посібники
 
 <p align="center">
-  <img src="/img/our_tutorial_1.jpg" alt="1" width="300"/>
-  <img src="/img/our_tutorial_2.jpg" alt="2" width="300"/>
+  <img src="./img/our_tutorial_1.jpg" alt="1" width="300"/>
+  <img src="./img/our_tutorial_2.jpg" alt="2" width="300"/>
 </p>
 
 <p align="center">
@@ -14,7 +14,7 @@ title: Наші посібники
   <a href="/docs/Calculators/flower_pot">Flower pot</a>
 </p>
 
-## Від авторів  
+## Від авторів
 
 _Цей посібник ми зробили для своїх — для тих, хто вміє тримати зв’язок, навіть коли навколо глухо.  
 Проста УКХ антена, яку можна зібрати з підручних матеріалів, — це не теорія, а робоче рішення,  
