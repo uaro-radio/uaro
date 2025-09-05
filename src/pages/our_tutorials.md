@@ -10,7 +10,7 @@ title: Наші посібники
 </p>
 
 <p align="center">
-  Посилання на калькулятор антени:<br>
+  Посилання на калькулятор антени:<br />
   <a href="/docs/Calculators/flower_pot">Flower pot</a>
 </p>
 
