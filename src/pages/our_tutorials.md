@@ -5,14 +5,14 @@ title: Наші посібники
 # Наші посібники
 
 <p align="center">
-  <img src="./img/our_tutorial_1.jpg" alt="1" width="220"/>
-  <img src="./img/our_tutorial_2.jpg" alt="2" width="220"/>
-  <img src="./img/our_tutorial_3.jpg" alt="3" width="220"/>
-  <img src="./img/our_tutorial_4.jpg" alt="4" width="220"/>
+  <img src="./img/our_tutorial_1.jpg" alt="1" width="300"/>
+  <img src="./img/our_tutorial_2.jpg" alt="2" width="300"/>
 </p>
 
-Посилання на калькулятор антени:  
-[Flower pot](/docs/Calculators/flower_pot)
+<p align="center">
+  Посилання на калькулятор антени:<br>
+  <a href="/docs/Calculators/flower_pot">Flower pot</a>
+</p>
 
 ## Від авторів  
 
@@ -23,4 +23,6 @@ _Цей посібник ми зробили для своїх — для тих
 _Ми зібрали все в одному посібнику — щоб він, коли справді треба, був під рукою._
 
 З питань замовлення або співпраці: **uaro.org.ua@gmail.com**
+
+
 
