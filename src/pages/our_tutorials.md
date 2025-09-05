@@ -4,11 +4,13 @@ title: Наші посібники
 
 # Наші посібники
 
-![1](./img/our_tutorial_1.jpg)
-![2](./img/our_tutorial_2.jpg)
-![3](./img/our_tutorial_3.jpg)
-![4](./img/our_tutorial_4.jpg)
-![5](./img/our_tutorial_5.jpg)
+<div style="display: flex; gap: 10px;">
+  <img src="./img/our_tutorial_1.jpg" alt="1" style="width: 25%; height: auto;" />
+  <img src="./img/our_tutorial_2.jpg" alt="2" style="width: 25%; height: auto;" />
+  <img src="./img/our_tutorial_3.jpg" alt="3" style="width: 25%; height: auto;" />
+  <img src="./img/our_tutorial_4.jpg" alt="4" style="width: 25%; height: auto;" />
+</div>
+
 Посилання на калькулятор антени: 
 [Flower pot](/docs/Calculators/flower_pot)
 
