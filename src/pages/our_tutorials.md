@@ -5,12 +5,12 @@ title: Наші посібники
 # Наші посібники
 
 <p align="center">
-<img src="img/our_tutorial_1.jpg" alt="1" width="300"/>
-<img src="img/our_tutorial_2.jpg" alt="2" width="300"/>
+  <img src="/img/our_tutorial_1.jpg" alt="1" width="300"/>
+  <img src="/img/our_tutorial_2.jpg" alt="2" width="300"/>
 </p>
 
 <p align="center">
-Посилання на калькулятор антени:<br />
+  Посилання на калькулятор антени:<br />
   <a href="/docs/Calculators/flower_pot">Flower pot</a>
 </p>
 
@@ -23,6 +23,3 @@ _Цей посібник ми зробили для своїх — для тих
 _Ми зібрали все в одному посібнику — щоб він, коли справді треба, був під рукою._
 
 З питань замовлення або співпраці: **uaro.org.ua@gmail.com**
-
-
-
