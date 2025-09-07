@@ -2,11 +2,15 @@
 title: Наші посібники
 ---
 
+import Image from '@site/src/components/Image';
+import our_tutorial_1 from '@site/src/pages/img/our_tutorial_1.jpg';
+import our_tutorial_2 from '@site/src/pages/img/our_tutorial_2.jpg';
+
 # Наші посібники
 
 <p align="center">
-  <img src="./img/our_tutorial_1.jpg" alt="1" width="300"/>
-  <img src="./img/our_tutorial_2.jpg" alt="2" width="300"/>
+  <img src={our_tutorial_1} alt="1" width="300"/>
+  <img src={our_tutorial_2} alt="2" width="300"/>
 </p>
 
 <p align="center">
