@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import AntennaImage from '@site/static/img/ground_plane.png';
+import '@site/src/css/calculators.css';
 export default function Calculator({ image }) {
     const [workingFrequency, setWorkingFrequency] = useState('145');
     const [lambdaValue, setLambdaValue] = useState(0);
@@ -15,11 +16,12 @@ export default function Calculator({ image }) {
     
     return (
         <>
-            <table style={{ borderCollapse: "collapse", border: "none" }}>
-                <tbody>
-                    <tr>
-                        <td>
-                            <table align="center">
+            <div className="calculator-container">
+                <table className="calculator-table">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <table className="calculator-inner-table">
                                 <tbody>
                                     <tr>
                                         <td>Робоча частота</td>
@@ -31,7 +33,18 @@ export default function Calculator({ image }) {
                                         </td>
                                         <td>МГц</td>
                                         <td rowSpan={5}>
-                                            <img src={AntennaImage} alt="Ground Plane Antenna" height="400pt" width="400pt" />
+                                            <img 
+                                                src={AntennaImage} 
+                                                alt="Ground Plane Antenna" 
+                                                height="400pt" 
+                                                width="400pt"
+                                                style={{
+                                                    backgroundColor: '#ffffff',
+                                                    padding: '10px',
+                                                    borderRadius: '8px',
+                                                    border: '1px solid var(--ifm-color-emphasis-300)'
+                                                }}
+                                            />
                                         </td>
                                     </tr>
                                     <tr>
@@ -71,6 +84,7 @@ export default function Calculator({ image }) {
                     </tr>
                 </tbody>
             </table>
+            </div>
         </>
     );
 }
