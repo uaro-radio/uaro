@@ -33,5 +33,5 @@ sidebar_position: 1
 4. [Блискавозахист будинку](https://zandz.com/ru/molniyezashchita_doma.html)
 5. Базелян. [Фізика блискавки та блискавозахисту](https://drive.google.com/file/d/13jOwe-FpvcTf6hNDfiviYEeVb2qPIK3-/view)
 
-![Заземлення](../img/img1.png)
-![Заземлення](../img/img2.png)
+![Заземлення](../../img/img1.png)
+![Заземлення](../../img/img2.png)

@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import AntennaImage from '@site/static/img/j-pole-antenna.png';
+import '@site/src/css/calculators.css';
 
 export default function JpoleCalculator({ image }) {
     const [workingFrequency, setWorkingFrequency] = useState('145');
@@ -115,11 +116,12 @@ export default function JpoleCalculator({ image }) {
     
     return (
         <>
-            <table style={{ borderCollapse: "collapse", border: "none" }}>
-                <tbody>
-                    <tr>
-                        <td>
-                            <table align="center">
+            <div className="calculator-container">
+                <table className="calculator-table">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <table className="calculator-inner-table">
                                 <tbody>
                                     <tr>
                                         <td>Стандартні частоти</td>
@@ -139,7 +141,18 @@ export default function JpoleCalculator({ image }) {
                                             </select>
                                         </td>
                                         <td rowSpan={11}>
-                                            <img src={AntennaImage} alt="J-pole Antenna" height="400pt" width="300pt" />
+                                            <img 
+                                                src={AntennaImage} 
+                                                alt="J-pole Antenna" 
+                                                height="400pt" 
+                                                width="300pt"
+                                                style={{
+                                                    backgroundColor: '#ffffff',
+                                                    padding: '10px',
+                                                    borderRadius: '8px',
+                                                    border: '1px solid var(--ifm-color-emphasis-300)'
+                                                }}
+                                            />
                                         </td>
                                     </tr>
                                     <tr>
@@ -230,9 +243,15 @@ export default function JpoleCalculator({ image }) {
                             </table>
                         </td>
                     </tr>
-                    {alertMessage && (
+                                    {alertMessage && (
                         <tr>
-                            <td align="center" style={{color: 'red', padding: '10px'}}>
+                            <td align="center" style={{
+                                color: 'var(--ifm-color-danger)', 
+                                padding: '10px',
+                                backgroundColor: 'var(--ifm-color-danger-contrast-background)',
+                                borderRadius: '4px',
+                                border: '1px solid var(--ifm-color-danger-contrast-foreground)'
+                            }}>
                                 <strong>{alertMessage}</strong>
                             </td>
                         </tr>
@@ -249,6 +268,7 @@ export default function JpoleCalculator({ image }) {
                     </tr>
                 </tbody>
             </table>
+            </div>
         </>
     );
 }

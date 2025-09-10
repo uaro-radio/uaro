@@ -1,0 +1,153 @@
+/* Глобальні стилі для всіх полів вводу в калькуляторах */
+input, select, textarea {
+    background-color: var(--ifm-background-surface-color) !important;
+    color: var(--ifm-color-emphasis-800) !important;
+    border: 1px solid var(--ifm-color-emphasis-300) !important;
+    border-radius: 4px;
+    padding: 8px;
+    font-size: 14px;
+}
+
+/* Стилі для полів вводу в калькуляторах */
+.calculator-input {
+    background-color: var(--ifm-background-surface-color) !important;
+    color: var(--ifm-color-emphasis-800) !important;
+    border: 1px solid var(--ifm-color-emphasis-300) !important;
+    border-radius: 4px;
+    padding: 8px;
+    font-size: 14px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.calculator-input:focus {
+    border-color: var(--ifm-color-primary) !important;
+    outline: none;
+    box-shadow: 0 0 0 1px var(--ifm-color-primary-light);
+}
+
+.calculator-input:read-only {
+    background-color: var(--ifm-color-emphasis-100) !important;
+    color: var(--ifm-color-emphasis-700) !important;
+}
+
+/* Стилі для select */
+.calculator-select {
+    background-color: var(--ifm-background-surface-color) !important;
+    color: var(--ifm-color-emphasis-800) !important;
+    border: 1px solid var(--ifm-color-emphasis-300) !important;
+    border-radius: 4px;
+    padding: 8px;
+    font-size: 14px;
+    width: 100%;
+}
+
+.calculator-select:focus {
+    border-color: var(--ifm-color-primary) !important;
+    outline: none;
+}
+
+/* Стилі для кнопок */
+.calculator-button {
+    background-color: var(--ifm-color-primary) !important;
+    color: var(--ifm-color-white) !important;
+    border: none !important;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    display: block;
+    margin: 0 auto;
+}
+
+.calculator-button:hover {
+    background-color: var(--ifm-color-primary-dark) !important;
+}
+
+.calculator-button:active {
+    background-color: var(--ifm-color-primary-darker) !important;
+}
+
+/* Стилі для таблиць калькуляторів */
+.calculator-table {
+    border-collapse: collapse;
+    border: none;
+    margin: 0 auto;
+    max-width: 800px;
+    width: 100%;
+}
+
+.calculator-inner-table {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.calculator-inner-table td {
+    padding: 8px;
+    vertical-align: middle;
+}
+
+.calculator-inner-table input,
+.calculator-inner-table select {
+    max-width: 200px;
+}
+
+/* Контейнер для центрування калькулятора */
+.calculator-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* Спеціальні стилі для Yagi калькулятора (повна ширина) */
+.yagi-calculator-container {
+    width: 100%;
+    margin: 0;
+}
+
+.yagi-calculator-table {
+    border-collapse: collapse;
+    border: none;
+    width: 100% !important;
+    max-width: none !important;
+}
+
+.yagi-calculator-inner-table {
+    width: 100% !important;
+    max-width: none !important;
+}
+
+.yagi-calculator-inner-table input,
+.yagi-calculator-inner-table select {
+    max-width: none !important;
+    width: auto;
+    min-width: 150px;
+}
+
+.yagi-calculator-inner-table td {
+    padding: 8px;
+    vertical-align: middle;
+}
+
+/* Кнопки в Yagi калькуляторі */
+.calculator-container button {
+    display: block;
+    margin: 0 auto;
+    background-color: var(--ifm-color-primary) !important;
+    color: var(--ifm-color-white) !important;
+    border: none !important;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.yagi-calculator-container button:hover {
+    background-color: var(--ifm-color-primary-dark) !important;
+}
+
+/* Стилі для текстових областей */
+.calculator-textarea {
+    background-color: var(--ifm-background-surface-color) !important;
+    color: var(--ifm-color-emphasis-800) !important;
+    border: 1px solid var(--ifm-color-emphasis-300) !important;
+}
