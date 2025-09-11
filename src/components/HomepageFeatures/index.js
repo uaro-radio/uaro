@@ -9,7 +9,7 @@ import statut from '@site/src/pages/img/statut.png';
 const FeatureList = [
     {
         title: 'Мета діяльності',
-        Svg: require('@site/static/img/ukraine.svg').default,
+        Svg: require('@site/static/img/ukraine_map.svg').default,
         description: (
             <>
                 <a href="/charter">
@@ -25,7 +25,7 @@ const FeatureList = [
     },
     {
         title: 'Наші посібники',
-        Svg: require('@site/static/img/user-guide-icon.svg').default,
+        Svg: require('@site/static/img/book.svg').default,
         description: (
             <>
                 <a href="/our_tutorials">
