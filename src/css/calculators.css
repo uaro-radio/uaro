@@ -99,7 +99,7 @@ input, select, textarea {
     margin: 0 auto;
 }
 
-/* Спеціальні стилі для Yagi калькулятора (повна ширина) */
+/* Спеціальні стилі для Yagi та Харченко калькуляторів (повна ширина) */
 .yagi-calculator-container {
     width: 100%;
     margin: 0;
