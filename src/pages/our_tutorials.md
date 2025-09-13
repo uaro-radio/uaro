@@ -15,7 +15,7 @@ import our_tutorial_2 from '@site/src/pages/img/our_tutorial_2.jpg';
 
 <p align="center">
   Посилання на калькулятор антени:<br />
-  <a href="/docs/Calculators/flower_pot">Flower pot</a>
+  <a href="/docs/calculators/flower_pot">Flower pot</a>
 </p>
 
 ## Від авторів
