@@ -20,7 +20,7 @@ ___
 - [RP2040-Zero](https://www.rcscomponents.kiev.ua/product/rp2040-zero_186292.html)
 - [Гніздо 3.5мм](https://www.rcscomponents.kiev.ua/product/hnizdo-jack-3-5mm-stereo-pj-392_198525.html)
 
-![Компоненти](./images/morse-uaro/components.png "Компоненти")
+![Компоненти](./images/components.png "Компоненти")
 
 ___
 
@@ -37,7 +37,7 @@ ___
 
 ## Прошивка мікроконтролера
 
-![Кнопка BOOT](./images/morse-uaro/button.png "Кнопка BOOT")
+![Кнопка BOOT](./images/button.png "Кнопка BOOT")
 
 Для того щоб прошити мікроконтролер, необхідно затиснути кнопку BOOT на платі мікроконтролера, та підключити його до комп'ютера. Комп'ютер побачить мікроконтролер як звичайну флешку, з назвою на кшталт **RPI-RP2**, та приблизно ось таким змістом всередині:
 
