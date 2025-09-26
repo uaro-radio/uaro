@@ -1,7 +1,46 @@
 ---
 sidebar_position: 5
+title: Калькулятор антени Харченко (BiQuad)
+description: Онлайн калькулятор антени Харченко (BiQuad) — обчислення розмірів антени з урахуванням частоти, імпедансу та одиниць вимірювання.
+keywords:
+  - калькулятор антени Харченко - UR3PKI
+  - cyberdev.space
+  - Ostapuk Petro
+tags: [UR3PKI, cyberdev-space, antennas, calculators]
 ---
 import Calculator from '@site/src/components/kharchenko_calculator';
+import Head from '@docusaurus/Head';
+import AntennaImage from '@site/static/img/BiRombFig2.png';
+
+<Head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="application/ld+json">
+        {`
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Калькулятор антени Харченко (BiQuad) | UR3PKI",
+      "url": "https://cyberdev.space/radio/calculators/antennas/kharchenko",
+      "applicationCategory": "CalculatorApplication",
+      "operatingSystem": "Any",
+      "description": "Онлайн калькулятор антени Харченко (BiQuad) — розрахунок розмірів антени з урахуванням частоти, імпедансу та одиниць вимірювання.",
+      "inLanguage": "uk",
+      "publisher": {
+        "@type": "Organization",
+        "name": "CyberDevSpace | UR3PKI",
+        "url": "https://cyberdev.space"
+      }
+    }
+  `}
+    </script>
+    {/* OpenGraph / Twitter */}
+    <meta property="og:title" content="Калькулятор антени Харченко (BiQuad) | UR3PKI" />
+    <meta property="og:description" content="Розрахунок антени Харченко (BiQuad) — розміри антени з урахуванням частоти, імпедансу та одиниць вимірювання." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://cyberdev.space/radio/calculators/antennas/kharchenko" />
+    <meta property="og:image" content={AntennaImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+</Head>
 
 # Калькулятор антени Харченко (BiQuad)
 
@@ -26,4 +65,9 @@ import Calculator from '@site/src/components/kharchenko_calculator';
 - **Підсилення:** Типове підсилення складає 10-12 dBi залежно від частоти та якості виготовлення.
 - **Діаграма спрямованості:** Кут розкриття діаграми спрямованості становить приблизно 60-70 градусів.
 - **Монтаж:** Рефлектор повинен бути розташований точно на розрахунковій відстані від площини рамок.
+:::
+
+:::info[Автор калькулятора - UR3PKI]
+Найновіші версії знайдете на сайті автора:
+[CYBERDEV.SPACE - **Харченко (BiQuad)** ](https://cyberdev.space/radio/calculators/antennas/kharchenko)
 :::
