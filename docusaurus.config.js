@@ -160,7 +160,7 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} Ukrainian Amateur Radio Operators.`,
+        copyright: `Copyright © ${new Date().getFullYear()} ГО "ЮАРО" | Розробка сайту: <a href="https://cyberdev.space" target="_blank" rel="noopener noreferrer">UR3PKI | CyberDevSpace</a>`,
       },
       prism: {
         theme: prismThemes.github,
