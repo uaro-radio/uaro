@@ -15,6 +15,11 @@ import Calculator from '@site/src/components/Calculator';
 import AntennaImage from '@site/static/img/flower_pot.jpg';
 
 <Head>
+    {/* === Canonical + SEO Control === */}
+    <link rel="canonical" href="https://cyberdev.space/radio/calculators/antennas/flower_pot" />
+    <meta name="robots" content="noindex, follow" />
+
+    {/* === Structured Data (Schema.org) === */}
     <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -25,17 +30,19 @@ import AntennaImage from '@site/static/img/flower_pot.jpg';
                 "url": "https://cyberdev.space/radio/calculators/antennas/flower_pot",
                 "applicationCategory": "CalculatorApplication",
                 "operatingSystem": "Any",
-                "description": "Онлайн калькулятор антени Flower Pot — розрахунок довжини плечей диполя і довжини кабелю запірного дроселя з урахуванням коефіцієнтів резонансу та укорочення кабелю.",
                 "inLanguage": "uk",
+                "description": "Онлайн калькулятор антени Flower Pot — розрахунок довжини плечей диполя і довжини кабелю запірного дроселя з урахуванням коефіцієнтів резонансу та укорочення кабелю.",
                 "publisher": {
                     "@type": "Organization",
                     "name": "CyberDevSpace | UR3PKI",
                     "url": "https://cyberdev.space"
-                }
+                },
+                "isBasedOn": "https://cyberdev.space/radio/calculators/antennas/flower_pot"
             }),
         }}
     />
 
+    {/* === Open Graph / Twitter === */}
     <meta property="og:title" content="Калькулятор антени Flower Pot | UR3PKI" />
     <meta property="og:description" content="Розрахунок антени Flower Pot — довжини плечей, кабелю дроселя, коефіцієнтів" />
     <meta property="og:type" content="website" />
