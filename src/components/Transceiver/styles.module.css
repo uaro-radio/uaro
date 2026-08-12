@@ -535,10 +535,9 @@
     animation: knobTune 13s ease-in-out infinite;
 }
 
-.knobSpin {
-    transform-origin: center;
-}
-
+/* Обертаємося навколо центру ручки (локальний 0 0). «center» тут брав би
+   центр viewBox, і насічки відлітали б за межі трансивера під час анімації. */
+.knobSpin,
 .knobDimple {
     transform-origin: 0 0;
 }
@@ -594,37 +593,5 @@
     font-family: var(--ifm-font-family-monospace);
 }
 
-/* prefers-reduced-motion стосується руху, а не анімації взагалі: зміни
-   прозорості дискомфорту не викликають, тому світлодіоди, цифри частоти,
-   мітка FT8 і поява кореспондента лишаються живими навіть тут.
-   Вимикаємо тільки те, що рухається: прокрутку, обертання, масштабування. */
-@media (prefers-reduced-motion: reduce) {
-    .meterClip,
-    .meterPeak,
-    .specBar,
-    .waterfall,
-    .glassSweep,
-    .knobSpin,
-    .knobDimple {
-        animation: none;
-    }
-
-    /* Смуга світла без анімації просто стояла б посеред екрана */
-    .glassSweep {
-        opacity: 0;
-    }
-
-    /* Хвилі лишаються живими — міняємо масштабування на засвічування.
-       Тривалість, плавність і затримки успадковуються з базового правила. */
-    .wave {
-        animation-name: waveFade;
-    }
-
-    .meterClip {
-        transform: scaleX(0.52);
-    }
-
-    .meterPeak {
-        transform: translateX(151px);
-    }
-}
+/* Анімація трансивера навмисно грає завжди — однаково на десктопі й мобільних,
+   незалежно від системного prefers-reduced-motion. */
