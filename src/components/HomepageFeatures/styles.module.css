@@ -1,11 +1,289 @@
+/* Цільові блоки: три рівні картки. Сітка сама вирішує, скільки колонок
+   помістилось, тож окремих брейкпоінтів не потрібно. */
 .features {
-  display: flex;
-  align-items: center;
-  padding: 2rem 0;
-  width: 100%;
+    --card-bg: #fff;
+    --card-border: rgba(22, 32, 43, 0.1);
+    --card-shadow: rgba(22, 32, 43, 0.08);
+    --card-title: #16202b;
+    --card-text: rgba(22, 32, 43, 0.7);
+    --card-cover-bg: #f2f5f8;
+    /* Акцент іконок — залежить від теми, тому інлайнові SVG на currentColor
+       підсвічуються по-різному у світлій і темній. */
+    --home-icon: var(--ifm-color-primary-darkest);
+    --calc-tile-hover: rgba(255, 165, 0, 0.09);
 }
 
-.featureSvg {
-  height: 200px;
-  width: 200px;
+[data-theme='dark'] .features {
+    --card-bg: #1c1f24;
+    --card-border: rgba(255, 255, 255, 0.09);
+    --card-shadow: rgba(0, 0, 0, 0.35);
+    --card-title: #fff;
+    --card-text: rgba(255, 255, 255, 0.68);
+    --card-cover-bg: #14171b;
+    --home-icon: var(--ifm-color-primary-light);
+    --calc-tile-hover: rgba(255, 165, 0, 0.14);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.75rem;
+}
+
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    background: var(--card-bg);
+    transition:
+        transform 0.18s ease,
+        box-shadow 0.18s ease,
+        border-color 0.18s ease;
+}
+
+.card:hover,
+.card:focus-within {
+    transform: translateY(-4px);
+    border-color: var(--ifm-color-primary);
+    box-shadow: 0 14px 30px var(--card-shadow);
+}
+
+/* Обкладинки в джерелі різного розміру й пропорцій, тому кадруємо їх
+   у фіксоване вікно, а не масштабуємо цілком. Зображення виймаємо з потоку:
+   інакше його власна висота розпирає блок і aspect-ratio ні на що не впливає. */
+.cover {
+    position: relative;
+    display: block;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    background: var(--card-cover-bg);
+}
+
+.cover img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+}
+
+/* QR-банер спільноти показуємо повністю (contain) на тлі, що збігається з
+   фоном самого банера, — щоб код не обрізало й він лишався сканованим. */
+.coverContain {
+    background: #232d3b;
+}
+
+.coverContain img {
+    object-fit: contain;
+    object-position: center;
+    padding: 10px;
+}
+
+.body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 1.35rem 1.4rem 1.5rem;
+}
+
+.heading {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    margin-bottom: 0.7rem;
+}
+
+.icon {
+    flex: none;
+    width: 38px;
+    height: 38px;
+    color: var(--home-icon);
+}
+
+.title {
+    margin: 0;
+    font-size: 1.2rem;
+    line-height: 1.25;
+    color: var(--card-title);
+}
+
+.titleLink,
+.titleLink:hover {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* Розтягнуте посилання: заголовок перекриває всю картку, тож клік у будь-якому
+   місці (включно з підписом-стрілкою й обкладинкою) веде за призначенням. */
+.titleLink::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+}
+
+/* Опис тягнеться, щоб підпис-стрілка стояв на одній лінії в усіх картках */
+.text {
+    flex: 1;
+    margin: 0 0 1rem;
+    font-size: 0.94rem;
+    line-height: 1.6;
+    color: var(--card-text);
+}
+
+.cta {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--ifm-color-primary);
+}
+
+a.cta:hover,
+a.cta:focus-visible {
+    color: var(--ifm-color-primary);
+    text-decoration: underline;
+}
+
+/* ── Картка з калькуляторами (сітка 2×3) ─────────────────────── */
+.calcCard {
+    padding: 1.35rem 1.4rem 1.5rem;
+}
+
+/* Контейнер не «підстрибує» — анімуються лише окремі плитки всередині */
+.calcCard:hover,
+.calcCard:focus-within {
+    transform: none;
+    box-shadow: none;
+    border-color: var(--card-border);
+}
+
+/* Сітка тягнеться на всю доступну висоту картки (flex: 1), а рядки ділять
+   її порівну — тож плитки заповнюють максимум місця, а посилання «Усі
+   калькулятори» опускається до низу, на рівень CTA сусідніх карток. */
+.calcGrid {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, minmax(0, 1fr));
+    gap: 0.75rem;
+    margin: 0.2rem 0 1.1rem;
+    padding: 0;
+    list-style: none;
+}
+
+.calcTile {
+    display: flex;
+}
+
+.calcLink {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.55rem;
+    width: 100%;
+    height: 100%;
+    padding: 0.85rem 0.5rem;
+    text-align: center;
+    border: 1px solid var(--card-border);
+    border-radius: 9px;
+    color: var(--card-title);
+    text-decoration: none;
+    transition:
+        transform 0.16s ease,
+        border-color 0.16s ease,
+        background 0.16s ease;
+}
+
+.calcLink:hover,
+.calcLink:focus-visible {
+    transform: translateY(-2px);
+    border-color: var(--ifm-color-primary);
+    background: var(--calc-tile-hover);
+    color: var(--card-title);
+    text-decoration: none;
+}
+
+/* Зона іконки — фіксованої висоти, щоб підписи вирівнялись в один ряд */
+.calcThumb {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 56px;
+}
+
+.calcIcon {
+    width: auto;
+    height: 100%;
+    max-width: 100%;
+}
+
+.calcLabel {
+    font-size: 0.82rem;
+    font-weight: 600;
+    line-height: 1.25;
+}
+
+/* ── Кольори іконок калькуляторів (система з cyberdev.space) ────
+   Акцент — на тому, що розраховується; нейтральний сірий — на
+   конструкції. Усе на змінних теми, тож гама підлаштовується сама. */
+.iconActive {
+    stroke: var(--ifm-color-primary);
+    stroke-width: 3;
+}
+
+.iconStruct {
+    stroke: var(--ifm-color-emphasis-600);
+    stroke-width: 2.5;
+}
+
+.iconBoom {
+    stroke: var(--ifm-color-emphasis-700);
+    stroke-width: 3.5;
+}
+
+.iconLead,
+.iconCoil {
+    stroke: var(--ifm-color-emphasis-600);
+    stroke-width: 2.5;
+}
+
+.iconFeed {
+    fill: var(--ifm-color-primary);
+}
+
+/* Рефлектор і огинаюча — допоміжні, тому пунктиром і приглушено */
+.iconReflector {
+    stroke: var(--ifm-color-emphasis-500);
+    stroke-width: 2;
+    stroke-dasharray: 5 5;
+}
+
+.iconCable {
+    stroke: var(--ifm-color-emphasis-600);
+    stroke-width: 7;
+}
+
+.iconWave {
+    stroke: var(--ifm-color-primary);
+    stroke-width: 2.5;
+    opacity: 0.85;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .card,
+    .calcLink {
+        transition: none;
+    }
+
+    .card:hover,
+    .card:focus-within,
+    .calcLink:hover,
+    .calcLink:focus-visible {
+        transform: none;
+    }
 }

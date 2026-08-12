@@ -1,0 +1,107 @@
+---
+sidebar_position: 1
+title: Coaxial cable loss calculator
+description: Online coaxial cable loss calculator — work out power losses in cable and connectors at different frequencies.
+keywords:
+  - coaxial cable loss calculator - UR3PKI
+  - cyberdev.space
+tags: [UR3PKI, cyberdev-space, antennas, calculators]
+---
+import Calculator from '@site/src/components/coax_loss_calculator';
+import Head from '@docusaurus/Head';
+
+<Head>
+    {/* === Canonical + SEO Control === */}
+    <link rel="canonical" href="https://cyberdev.space/radio/calculators/others/coax_loss_calculator" />
+    <meta name="robots" content="noindex, follow" />
+
+    {/* === Structured Data (Schema.org) === */}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="application/ld+json">
+        {`
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Coaxial cable loss calculator | UR3PKI",
+      "url": "https://cyberdev.space/radio/calculators/others/coax_loss_calculator",
+      "applicationCategory": "CalculatorApplication",
+      "operatingSystem": "Any",
+      "description": "Online coaxial cable loss calculator — work out power losses in cable and connectors at different frequencies.",
+      "inLanguage": "en",
+      "publisher": {
+        "@type": "Organization",
+        "name": "CyberDevSpace | UR3PKI",
+        "url": "https://cyberdev.space"
+      },
+      "isBasedOn": "https://cyberdev.space/radio/calculators/antennas/coax_loss_calculator"
+    }
+  `}
+    </script>
+    {/* OpenGraph / Twitter */}
+    <meta property="og:title" content="Coaxial cable loss calculator | UR3PKI" />
+    <meta property="og:description" content="Coaxial cable loss calculation — power losses in cable and connectors at different frequencies." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://cyberdev.space/radio/calculators/others/coax_loss_calculator" />
+    <meta name="twitter:card" content="summary_large_image" />
+</Head>
+
+# Coaxial cable loss calculator
+
+:::info[About]
+This calculator lets you work out power losses in coaxial cables and connectors at
+different frequencies. You can add various types of cable, connectors and attenuators in
+order to model your actual antenna system.
+
+The calculator includes the characteristics of popular Ukrainian and foreign cables.
+:::
+
+<Calculator />
+
+:::warning[Notes]
+- **System components:** add cables, connectors and attenuators in the order they are connected.
+- **Cable length:** given in metres to the nearest centimetre (0.01 m).
+- **Number of connectors:** given as a whole number (for example, 2 connectors).
+- **Loss calculation:** linear interpolation between known frequencies is used.
+- **Colour coding of the results:**
+  - 🟢 **Green:** losses below 50% (acceptable)
+  - 🟡 **Yellow:** losses of 50–80% (needs attention)
+  - 🔴 **Red:** losses above 80% (critical)
+- **Cable types:**
+  - **RG-58:** thin cable for HF/VHF (50 Ω)
+  - **RG-8:** thick cable for HF (50 Ω)
+  - **LMR-400:** low-loss cable for VHF/UHF (50 Ω)
+  - **RG-213:** thick general-purpose cable (50 Ω)
+  - **RG-174:** very thin cable for UHF (50 Ω)
+  - **RK 50:** Soviet and Ukrainian cables (50 Ω)
+  - **3D-FB:** semi-rigid cable for UHF (50 Ω)
+- **Conductors:**
+  - **Solid core:** better characteristics at high frequencies
+  - **Stranded:** more flexible, worse losses at UHF
+- **Calculation frequencies:** 1.9, 3.75, 7.15, 14.15, 27.5, 52, 145, 435 MHz
+- **Accuracy:** the results are approximate and depend on the quality of the cable and the installation
+- **Recommendations:**
+  - Use the shortest cables you can
+  - Keep the number of connectors to a minimum
+  - For VHF/UHF use LMR-400 or equivalent cable
+  - Check the SWR of the system after installation
+:::
+
+## Sources of the data
+
+The characteristics of the cables and connectors are taken from:
+- Manufacturers' technical documentation
+- Measurements made by radio amateurs
+- Catalogues of Ukrainian suppliers
+- International standards
+
+:::info[Calculator by UR3PKI]
+The most recent versions are available on the author's site:
+[CYBERDEV.SPACE - **coaxial cable loss calculator** ](https://cyberdev.space/radio/calculators/others/coax_loss_calculator)
+:::
+
+## Useful links
+
+- [Calculator](https://diy.manko.pro/coax-loss-calculator/) by UR5WKM
+- [Odeskabel cable catalogue](http://odeskabel.com.ua/)
+- [Coaxial cable reference](https://www.timesmicrowave.com/)
+- [UARO antenna calculators](/docs/calculators)

@@ -1,7 +1,7 @@
 ---
 slug: tutorial-for-beginners
 title: Навчальний посібник для початківців.
-authors: [PetroOstapuk]
+authors: [ur3pki]
 tags: [UARO]
 ---
 

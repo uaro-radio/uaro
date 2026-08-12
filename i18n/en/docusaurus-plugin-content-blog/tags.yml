@@ -1,0 +1,9 @@
+UARO:
+  label: UARO
+  permalink: /uaro-news
+  description: Ukrainian Amateur Radio Operators news
+
+hello:
+  label: Hello
+  permalink: /hello
+  description: Hello tag description

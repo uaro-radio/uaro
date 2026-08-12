@@ -3,21 +3,163 @@
  * and scoped locally.
  */
 
-.heroBanner {
-  padding: 1rem 0;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
+/* ── Шапка ───────────────────────────────────────────────────
+   Дві колонки: напис ліворуч, трансивер праворуч. Тло — тепле
+   світло згори-ліворуч плюс шкала настройки вздовж нижнього краю. */
+.hero {
+    --hero-top: #fbf7f1;
+    --hero-bottom: #f1ece4;
+    --hero-glow: rgba(255, 165, 0, 0.16);
+    --hero-title: #16202b;
+    --hero-text: rgba(22, 32, 43, 0.68);
+    --hero-lead: rgba(22, 32, 43, 0.6);
+    --hero-edge: rgba(22, 32, 43, 0.1);
+    --hero-tick: rgba(22, 32, 43, 0.14);
+    --hero-tick-major: rgba(22, 32, 43, 0.26);
+    --hero-btn-text: #16202b;
+    --hero-btn-border: rgba(22, 32, 43, 0.3);
+    --hero-btn-hover-bg: rgba(22, 32, 43, 0.06);
+    --hero-btn-hover-border: rgba(22, 32, 43, 0.55);
+
+    position: relative;
+    overflow: hidden;
+    padding: 3rem 0 4.25rem;
+    color: var(--hero-text);
+    border-bottom: 1px solid var(--hero-edge);
+    background:
+        radial-gradient(
+            ellipse 70% 90% at 12% 0%,
+            var(--hero-glow),
+            transparent 65%
+        ),
+        linear-gradient(180deg, var(--hero-top) 0%, var(--hero-bottom) 100%);
+}
+
+[data-theme='dark'] .hero {
+    --hero-top: #1d2026;
+    --hero-bottom: #131519;
+    --hero-glow: rgba(255, 165, 0, 0.14);
+    --hero-title: #fff;
+    --hero-text: rgba(255, 255, 255, 0.7);
+    --hero-lead: rgba(255, 255, 255, 0.58);
+    --hero-edge: rgba(255, 255, 255, 0.08);
+    --hero-tick: rgba(255, 255, 255, 0.11);
+    --hero-tick-major: rgba(255, 255, 255, 0.22);
+    --hero-btn-text: #fff;
+    --hero-btn-border: rgba(255, 255, 255, 0.4);
+    --hero-btn-hover-bg: rgba(255, 255, 255, 0.1);
+    --hero-btn-hover-border: rgba(255, 255, 255, 0.7);
+}
+
+/* Шкала настройки: часті поділки і кожна п'ята — довша */
+.hero::after {
+    content: '';
+    position: absolute;
+    inset: auto 0 0;
+    height: 28px;
+    pointer-events: none;
+    background-image:
+        repeating-linear-gradient(
+            90deg,
+            var(--hero-tick-major) 0 1px,
+            transparent 1px 80px
+        ),
+        repeating-linear-gradient(
+            90deg,
+            var(--hero-tick) 0 1px,
+            transparent 1px 16px
+        );
+    background-size:
+        100% 26px,
+        100% 12px;
+    background-position: bottom left;
+    background-repeat: repeat-x;
+}
+
+.heroInner {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    /* Ліву колонку лишаємо зверху, а трансивер центруємо по її висоті */
+    align-items: start;
+    column-gap: 2.5rem;
+}
+
+.heroText {
+    min-width: 0;
+}
+
+.heroTitle {
+    margin: 0 0 1.1rem;
+    font-size: clamp(2.4rem, 5vw, 3.8rem);
+    line-height: 1.04;
+    letter-spacing: -0.01em;
+    color: var(--hero-title);
+}
+
+.heroLead {
+    margin: 0;
+    max-width: 46ch;
+    font-size: clamp(0.96rem, 1.2vw, 1.06rem);
+    line-height: 1.6;
+    color: var(--hero-lead);
+}
+
+.actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1.75rem;
+}
+
+/* Друга кнопка контурна, щоб не сперечалася з основною */
+.secondaryButton.secondaryButton {
+    background: transparent;
+    color: var(--hero-btn-text);
+    border: 1px solid var(--hero-btn-border);
+}
+
+.secondaryButton.secondaryButton:hover,
+.secondaryButton.secondaryButton:focus-visible {
+    background: var(--hero-btn-hover-bg);
+    color: var(--hero-btn-text);
+    border-color: var(--hero-btn-hover-border);
+}
+
+.heroRig {
+    min-width: 0;
+    /* Трансивер по центру висоти лівого блоку, ліва колонка лишається зверху */
+    align-self: center;
+}
+
+/* ── Розділи під шапкою ──────────────────────────────────── */
+.section {
+    padding: 3.5rem 0;
+}
+
+.newsBand {
+    background: var(--news-band-bg, #f7f8fa);
+    border-top: 1px solid var(--hero-edge, rgba(22, 32, 43, 0.1));
+}
+
+[data-theme='dark'] .newsBand {
+    --news-band-bg: #17191d;
+    border-top-color: rgba(255, 255, 255, 0.08);
 }
 
 @media screen and (max-width: 996px) {
-  .heroBanner {
-    padding: 2rem;
-  }
-}
+    .hero {
+        padding: 2.25rem 0 3.25rem;
+    }
 
-.buttons {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    /* Тісно для двох колонок — трансивер іде під написом */
+    .heroInner {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 2rem;
+    }
+
+    .section {
+        padding: 2.5rem 0;
+    }
 }

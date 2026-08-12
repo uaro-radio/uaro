@@ -1,0 +1,118 @@
+/* Новини лежать смугою карток на всю ширину — на відміну від вузької
+   бічної колонки, тож на головній вони читаються як окремий розділ. */
+.section {
+    --news-card-bg: #fff;
+    --news-card-border: rgba(22, 32, 43, 0.1);
+    --news-card-hover-border: var(--ifm-color-primary);
+    --news-card-shadow: rgba(22, 32, 43, 0.07);
+    --news-title: #16202b;
+    --news-text: rgba(22, 32, 43, 0.66);
+    --news-date: rgba(22, 32, 43, 0.5);
+}
+
+[data-theme='dark'] .section {
+    --news-card-bg: #1c1f24;
+    --news-card-border: rgba(255, 255, 255, 0.09);
+    --news-card-shadow: rgba(0, 0, 0, 0.3);
+    --news-title: #fff;
+    --news-text: rgba(255, 255, 255, 0.64);
+    --news-date: rgba(255, 255, 255, 0.45);
+}
+
+/* Заголовок розділу і посилання «усі новини» — на одному рядку */
+.header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--news-card-border);
+}
+
+.title {
+    margin: 0;
+    font-size: clamp(1.35rem, 2.4vw, 1.75rem);
+    color: var(--news-title);
+}
+
+.more {
+    font-weight: 600;
+    font-size: 0.95rem;
+    white-space: nowrap;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.25rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.card {
+    display: flex;
+}
+
+/* Уся картка — одна ціль для кліку, тому посилання розтягуємо на неї */
+.link {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 1.25rem;
+    border: 1px solid var(--news-card-border);
+    border-radius: 10px;
+    background: var(--news-card-bg);
+    color: inherit;
+    text-decoration: none;
+    transition:
+        transform 0.18s ease,
+        border-color 0.18s ease,
+        box-shadow 0.18s ease;
+}
+
+.link:hover,
+.link:focus-visible {
+    transform: translateY(-3px);
+    border-color: var(--news-card-hover-border);
+    box-shadow: 0 10px 24px var(--news-card-shadow);
+    text-decoration: none;
+    color: inherit;
+}
+
+.date {
+    margin-bottom: 0.6rem;
+    font-family: var(--ifm-font-family-monospace);
+    font-size: 0.74rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--news-date);
+}
+
+.postTitle {
+    margin-bottom: 0.5rem;
+    font-size: 1.02rem;
+    font-weight: 700;
+    line-height: 1.35;
+    color: var(--news-title);
+}
+
+.excerpt {
+    font-size: 0.9rem;
+    line-height: 1.55;
+    color: var(--news-text);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .link {
+        transition: none;
+    }
+
+    .link:hover,
+    .link:focus-visible {
+        transform: none;
+    }
+}

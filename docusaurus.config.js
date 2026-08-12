@@ -24,18 +24,36 @@ const config = {
   projectName: 'uaro', // Usually your repo name.
 
   onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
+
+  markdown: {
+    hooks: {
+      onBrokenMarkdownLinks: 'warn',
+    },
+  },
 
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
   // may want to replace "en" with "zh-Hans".
   i18n: {
     defaultLocale: 'uk',
-    locales: ['uk'],
+    locales: ['uk', 'en'],
+    localeConfigs: {
+      uk: {
+        label: '🇺🇦 Українська',
+        htmlLang: 'uk-UA',
+      },
+      en: {
+        label: '🇬🇧 English',
+        htmlLang: 'en-US',
+      },
+    },
   },
 
   plugins: [
-    'plugin-image-zoom'
+    'plugin-image-zoom',
+    // Останні новини для головної сторінки: плагін блогу глобальних даних
+    // не віддає, тому збираємо їх самі на етапі збірки.
+    ['./plugins/recent-posts', {count: 4}],
   ],
 
   presets: [
@@ -88,7 +106,7 @@ const config = {
         title: 'UARO',
         logo: {
           alt: 'UARO',
-          src: 'img/uaro.jpg',
+          src: 'img/new_logo.png',
         },
         items: [
           // {
@@ -97,15 +115,33 @@ const config = {
           //   position: 'left',
           //   label: 'Корисні матеріали',
           // },
+          // Дев'ять пунктів поспіль переносились на другий рядок уже на
+          // 1440px, а перемикач мов забрав іще місця — тому споріднені
+          // розділи згорнуто у два випадні меню.
           {to: '/docs/tutorial-for-beginners', label: 'Довідник', position: 'left'},
-          {to: '/docs/authors_materials', label: 'Авторські матеріали', position: 'left'},
-          {to: '/docs/calculators', label: 'Калькулятори', position: 'left'},
-          {to: '/charter', label: 'Документи', position: 'left'},
-          {to: '/membership', label: 'Вступ до ЮАРО', position: 'left'},
-          {to: '/awards', label: 'Відзнаки', position: 'left'},
-          {to: '/our_tutorials', label: 'Посібники', position: 'left'},
+          {
+            type: 'dropdown',
+            label: 'Матеріали',
+            position: 'left',
+            items: [
+              {to: '/docs/calculators', label: 'Калькулятори'},
+              {to: '/docs/authors_materials', label: 'Авторські матеріали'},
+              {to: '/our_tutorials', label: 'Посібники'},
+            ],
+          },
+          {
+            type: 'dropdown',
+            label: 'Організація',
+            position: 'left',
+            items: [
+              {to: '/about', label: 'Про нас'},
+              {to: '/charter', label: 'Документи'},
+              {to: '/membership', label: 'Вступ до ЮАРО'},
+              {to: '/awards', label: 'Відзнаки'},
+              {to: '/contacts', label: 'Контакти'},
+            ],
+          },
           {to: '/blog', label: 'Новини', position: 'left'},
-          {to: '/about', label: 'Про нас', position: 'left'},
           {
             href: 'https://github.com/uaro-radio',
             label: 'GitHub',
@@ -119,47 +155,8 @@ const config = {
       },
       footer: {
         style: 'dark',
-        links: [
-          {
-            title: 'Інше',
-            items: [
-              {
-                label: 'Корисні матеріали',
-                to: '/docs/tutorial-for-beginners',
-              },
-            ],
-          },
-          {
-            title: 'Спільнота',
-            items: [
-            //   {
-            //     label: 'Stack Overflow',
-            //     href: 'https://github.com/uaro-radio',
-            //   },
-            //   {
-            //     label: 'Discord',
-            //     href: 'https://github.com/uaro-radio',
-            //   },
-              {
-                label: 'Telegram',
-                href: 'https://t.me/Ukraine_Amateur_Radio_Operators',
-              },
-            ],
-          },
-          {
-            title: 'Цікаве',
-            items: [
-              {
-                label: 'Новини',
-                to: '/blog',
-              },
-              {
-                label: 'GitHub',
-                href: 'https://github.com/uaro-radio',
-              },
-            ],
-          },
-        ],
+        // Компактний футер: колонки посилань дублювали навбар і головну,
+        // тож лишаємо лише стрічку копірайту з кредитом розробника.
         copyright: `Copyright © ${new Date().getFullYear()} ГО "ЮАРО" | Розробка сайту: <a href="https://cyberdev.space" target="_blank" rel="noopener noreferrer">UR3PKI | CyberDevSpace</a>`,
       },
       prism: {
