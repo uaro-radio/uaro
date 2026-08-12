@@ -1,0 +1,70 @@
+{
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
+  },
+  "sidebar.tutorialSidebar.category.Довідник початківця": {
+    "message": "Beginner's handbook",
+    "description": "The label for category 'Довідник початківця' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Довідник початківця.link.generated-index.description": {
+    "message": "A training handbook for newcomers (draft).",
+    "description": "The generated-index page description for category 'Довідник початківця' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Калькулятори": {
+    "message": "Calculators",
+    "description": "The label for category 'Калькулятори' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Калькулятори.link.generated-index.description": {
+    "message": "Calculators by UR3PKI",
+    "description": "The generated-index page description for category 'Калькулятори' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Інші калькулятори": {
+    "message": "Other calculators",
+    "description": "The label for category 'Інші калькулятори' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Інші калькулятори.link.generated-index.description": {
+    "message": "Other calculators by UR3PKI",
+    "description": "The generated-index page description for category 'Інші калькулятори' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Авторські матеріали": {
+    "message": "Member articles",
+    "description": "The label for category 'Авторські матеріали' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Авторські матеріали.link.generated-index.description": {
+    "message": "Articles contributed by our members",
+    "description": "The generated-index page description for category 'Авторські матеріали' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Матеріали UR3QJ": {
+    "message": "Articles by UR3QJ",
+    "description": "The label for category 'Матеріали UR3QJ' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Матеріали UR3QJ.link.generated-index.description": {
+    "message": "A collection of guides and other materials by UR3QJ.",
+    "description": "The generated-index page description for category 'Матеріали UR3QJ' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Матеріали UT3USW": {
+    "message": "Articles by UT3USW",
+    "description": "The label for category 'Матеріали UT3USW' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Матеріали UT3USW.link.generated-index.description": {
+    "message": "A collection of guides and other materials by UT3USW.",
+    "description": "The generated-index page description for category 'Матеріали UT3USW' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.GSM": {
+    "message": "GSM",
+    "description": "The label for category 'GSM' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.GSM.link.generated-index.description": {
+    "message": "Working with GSM networks",
+    "description": "The generated-index page description for category 'GSM' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Матеріали so1der": {
+    "message": "Articles by so1der",
+    "description": "The label for category 'Матеріали so1der' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Матеріали so1der.link.generated-index.description": {
+    "message": "A collection of guides and other materials by so1der.",
+    "description": "The generated-index page description for category 'Матеріали so1der' in sidebar 'tutorialSidebar'"
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "title": {
+    "message": "UARO",
+    "description": "The title in the navbar"
+  },
+  "logo.alt": {
+    "message": "UARO",
+    "description": "The alt text of navbar logo"
+  },
+  "item.label.Довідник": {
+    "message": "Handbook",
+    "description": "Navbar item with label Довідник"
+  },
+  "item.label.Матеріали": {
+    "message": "Resources",
+    "description": "Navbar item with label Матеріали"
+  },
+  "item.label.Організація": {
+    "message": "Organisation",
+    "description": "Navbar item with label Організація"
+  },
+  "item.label.Новини": {
+    "message": "News",
+    "description": "Navbar item with label Новини"
+  },
+  "item.label.GitHub": {
+    "message": "GitHub",
+    "description": "Navbar item with label GitHub"
+  },
+  "item.label.Калькулятори": {
+    "message": "Calculators",
+    "description": "Navbar item with label Калькулятори"
+  },
+  "item.label.Авторські матеріали": {
+    "message": "Member articles",
+    "description": "Navbar item with label Авторські матеріали"
+  },
+  "item.label.Посібники": {
+    "message": "Our guides",
+    "description": "Navbar item with label Посібники"
+  },
+  "item.label.Про нас": {
+    "message": "About us",
+    "description": "Navbar item with label Про нас"
+  },
+  "item.label.Документи": {
+    "message": "Documents",
+    "description": "Navbar item with label Документи"
+  },
+  "item.label.Вступ до ЮАРО": {
+    "message": "Join UARO",
+    "description": "Navbar item with label Вступ до ЮАРО"
+  },
+  "item.label.Відзнаки": {
+    "message": "Awards",
+    "description": "Navbar item with label Відзнаки"
+  },
+  "item.label.Контакти": {
+    "message": "Contacts",
+    "description": "Navbar item with label Контакти"
+  }
+}

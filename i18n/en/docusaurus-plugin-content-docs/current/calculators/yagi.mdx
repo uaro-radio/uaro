@@ -1,0 +1,82 @@
+---
+sidebar_position: 4
+title: Yagi antenna calculator (DL6WU)
+description: Online Yagi antenna calculator (DL6WU) — work out Yagi antenna dimensions taking boom correction and element mounting type into account.
+keywords:
+  - Yagi antenna calculator - UR3PKI
+  - cyberdev.space
+tags: [UR3PKI, cyberdev-space, antennas, calculators]
+---
+import Calculator from '@site/src/components/yagi_calculator';
+import Head from '@docusaurus/Head';
+import AntennaImage from '@site/static/img/yagi4.png';
+
+<Head>
+    {/* === Canonical + SEO Control === */}
+    <link rel="canonical" href="https://cyberdev.space/radio/calculators/antennas/yagi" />
+    <meta name="robots" content="noindex, follow" />
+
+    {/* === Structured Data (Schema.org) === */}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="application/ld+json">
+        {`
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Yagi antenna calculator (DL6WU) | UR3PKI",
+      "url": "https://cyberdev.space/radio/calculators/antennas/yagi",
+      "applicationCategory": "CalculatorApplication",
+      "operatingSystem": "Any",
+      "description": "Online Yagi antenna calculator (DL6WU) — work out Yagi antenna dimensions taking boom correction and element mounting type into account.",
+      "inLanguage": "en",
+      "publisher": {
+        "@type": "Organization",
+        "name": "CyberDevSpace | UR3PKI",
+        "url": "https://cyberdev.space"
+      },
+      "isBasedOn": "https://cyberdev.space/radio/calculators/antennas/yagi"
+    }
+  `}
+    </script>
+    {/* OpenGraph / Twitter */}
+    <meta property="og:title" content="Yagi antenna calculator (DL6WU) | UR3PKI" />
+    <meta property="og:description" content="Yagi antenna design (DL6WU) — Yagi dimensions taking boom correction and element mounting type into account." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://cyberdev.space/radio/calculators/antennas/yagi" />
+    <meta property="og:image" content={AntennaImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+</Head>
+
+# Yagi antenna calculator (DL6WU)
+
+:::info[About]
+This calculator works out the dimensions of a Yagi antenna using the DL6WU method.
+The Yagi-Uda is the most popular type of directional antenna for the VHF and UHF bands.
+The calculator takes the correction for the influence of the boom into account, along with
+different types of element mounting.
+:::
+
+<Calculator />
+
+:::warning[Notes]
+- **Standard frequencies:** pick one from the list of common frequencies or enter your own by hand.
+- **Driven element shape:** a folded dipole gives a better match (75 Ω), a split dipole has an impedance of about 50 Ω.
+- **Element type:** round elements are simpler to make, flat ones have slightly better characteristics.
+- **Boom shape:** a round or square boom cross-section affects the correction calculation.
+- **Element mounting:**
+  - **Option 1:** elements bonded to a metal boom (the simplest construction)
+  - **Option 2:** elements insulated from the boom (better characteristics)
+  - **Option 3:** a dielectric boom or elements spaced away from it (the best characteristics)
+- **Units:** results can be shown in millimetres, centimetres or metres.
+- The minimum number of elements is 3 (reflector + dipole + 1 director).
+- The maximum number of elements is capped at 20 for practical reasons.
+- The boom diameter should not exceed 9% of the wavelength.
+- The calculation includes boom correction according to the DL6WU algorithm.
+- Gain is calculated from empirical formulas and is approximate.
+- For fine tuning, an SWR meter and an antenna analyser are recommended.
+:::
+
+:::info[Calculator by UR3PKI]
+The most recent versions are available on the author's site:
+[CYBERDEV.SPACE - **Yagi antenna (DL6WU)** ](https://cyberdev.space/radio/calculators/antennas/yagi)
+:::

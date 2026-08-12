@@ -1,7 +1,7 @@
 ---
 slug: welcome
 title: Оператори аматорських радіостанцій України
-authors: [PetroOstapuk]
+authors: [ur3pki]
 tags: [UARO]
 ---
 

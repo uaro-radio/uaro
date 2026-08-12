@@ -1,0 +1,630 @@
+/* Палітра трансивера. Світла тема — сірий корпус, темна — «нічний шек». */
+.rig {
+    --rig-case-top: #454b53;
+    --rig-case-mid: #33383f;
+    --rig-case-bottom: #202429;
+    --rig-edge: #14161a;
+    --rig-bevel: rgba(255, 255, 255, 0.14);
+    --rig-screen-bezel: #0a0c0e;
+    --rig-screen-rim: rgba(255, 255, 255, 0.08);
+    --rig-screen-top: #0d1f1a;
+    --rig-screen-bottom: #061210;
+    /* Зелений — фосфорний колір позначок режимів (USB, FT8, VFO…). */
+    --rig-display: #46f8b4;
+    --rig-amber: #ffb34d;
+    /* Помаранчевий — частота, S-метр і водоспад, у тон акценту сайту. */
+    --rig-orange: #ffb020;
+    /* Погашені сегменти частоти ледь помітні — інакше кожна цифра як «8». */
+    --rig-display-dim: rgba(255, 176, 32, 0.08);
+    --rig-meter-track: rgba(255, 176, 32, 0.12);
+    --rig-spectrum-bg: rgba(0, 0, 0, 0.42);
+    --rig-grid: rgba(255, 176, 32, 0.1);
+    --rig-grille: #1b1e23;
+    --rig-knob-light: #5c636d;
+    --rig-knob-dark: #292d33;
+    --rig-knob-ring: #17191d;
+    --rig-knob-notch: #101215;
+    --rig-handle: #4d545e;
+    --rig-handle-edge: rgba(255, 255, 255, 0.28);
+    /* На світлому тлі важка чорна тінь виглядає брудно */
+    --rig-shadow: rgba(22, 32, 43, 0.24);
+
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: 1040px;
+    margin: 0 auto;
+    filter: drop-shadow(0 20px 38px var(--rig-shadow));
+}
+
+[data-theme='dark'] .rig {
+    --rig-case-top: #34383f;
+    --rig-case-mid: #262a30;
+    --rig-case-bottom: #15171b;
+    --rig-knob-light: #4a5058;
+    --rig-knob-dark: #202329;
+    --rig-handle: #444b54;
+    --rig-shadow: rgba(0, 0, 0, 0.45);
+}
+
+/* Розшифровка над корпусом рига — читається на тлі шапки в обох темах */
+.rigTagline {
+    fill: var(--ifm-color-primary-darkest);
+    font-family: var(--ifm-font-family-monospace);
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: 5px;
+}
+
+[data-theme='dark'] .rigTagline {
+    fill: var(--ifm-color-primary-light);
+}
+
+/* ── Ручки для перенесення ──────────────────────────────── */
+.handleBase {
+    fill: none;
+    stroke: var(--rig-handle);
+    stroke-width: 7;
+    stroke-linecap: round;
+}
+
+/* Світло падає згори, тому підсвічену грань зсуваємо вгору */
+.handleEdge {
+    fill: none;
+    stroke: var(--rig-handle-edge);
+    stroke-width: 2;
+    stroke-linecap: round;
+    transform: translateY(-1.6px);
+}
+
+.handleBoss {
+    fill: var(--rig-knob-ring);
+    stroke: var(--rig-handle-edge);
+    stroke-width: 1;
+}
+
+/* ── Антена, кабель, радіохвилі ─────────────────────────── */
+.antRadiator {
+    stroke: var(--rig-knob-light);
+    stroke-width: 4;
+    stroke-linecap: round;
+}
+
+/* Yagi: бум трохи товщий за елементи, щоб читалась «стріла» решітки */
+.antBoom {
+    stroke: var(--rig-knob-light);
+    stroke-width: 4;
+    stroke-linecap: round;
+}
+
+.antElement {
+    stroke: var(--rig-knob-light);
+    stroke-width: 3;
+    stroke-linecap: round;
+}
+
+.antMast {
+    stroke: var(--rig-case-mid);
+    stroke-width: 6;
+    stroke-linecap: round;
+}
+
+.antRadial {
+    stroke: var(--rig-knob-light);
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    opacity: 0.85;
+}
+
+.antGuy {
+    stroke: var(--rig-knob-light);
+    stroke-width: 1;
+    opacity: 0.3;
+}
+
+.antInsulator {
+    fill: var(--rig-knob-ring);
+}
+
+/* Кабель світліший за корпус: на темному тлі шека чорний джгут просто зникав */
+.coaxJacket {
+    fill: none;
+    stroke: #3d434b;
+    stroke-width: 6;
+    stroke-linecap: round;
+}
+
+/* Тонкий відблиск уздовж кабелю — щоб не читався як плоска лінія */
+.coaxSheen {
+    fill: none;
+    stroke: rgba(255, 255, 255, 0.16);
+    stroke-width: 1.8;
+    stroke-linecap: round;
+}
+
+.wave path {
+    fill: none;
+    stroke: var(--ifm-color-primary);
+    stroke-width: 3;
+    stroke-linecap: round;
+}
+
+/* Хвилі розходяться від вершини випромінювача */
+.wave {
+    transform-origin: 884px 150px;
+    animation: waveOut 4.2s ease-out infinite;
+}
+
+@keyframes waveOut {
+    0% {
+        transform: scale(0.4);
+        opacity: 0;
+    }
+    22% {
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(1.3);
+        opacity: 0;
+    }
+}
+
+/* Той самий сенс без руху: дуги засвічуються по черзі — від ближньої до
+   дальньої. Затримки в них уже різні, тож видно, як хвиля йде назовні. */
+@keyframes waveFade {
+    0%,
+    100% {
+        opacity: 0.1;
+    }
+    22% {
+        opacity: 0.7;
+    }
+    52% {
+        opacity: 0.1;
+    }
+}
+
+/* ── Дисплей ────────────────────────────────────────────── */
+.segOn {
+    fill: var(--rig-orange);
+}
+
+.segOff {
+    fill: var(--rig-display-dim);
+}
+
+/* Остання цифра змінюється синхронно з обертанням ручки VFO */
+.lastDigit0,
+.lastDigit1,
+.lastDigit2 {
+    animation: digitCycle 13s steps(1, end) infinite;
+}
+
+.lastDigit0 {
+    animation-delay: 0s;
+}
+
+.lastDigit1 {
+    animation-delay: -8.6667s;
+}
+
+.lastDigit2 {
+    animation-delay: -4.3333s;
+}
+
+@keyframes digitCycle {
+    0%,
+    33.32% {
+        opacity: 1;
+    }
+    33.33%,
+    100% {
+        opacity: 0;
+    }
+}
+
+.unit {
+    fill: var(--rig-orange);
+    font-size: 15px;
+    font-weight: 700;
+    font-family: var(--ifm-font-family-monospace);
+    letter-spacing: 0.06em;
+}
+
+.tag,
+.tagFt8,
+.tagDim {
+    font-size: 15px;
+    font-weight: 700;
+    font-family: var(--ifm-font-family-monospace);
+    letter-spacing: 0.08em;
+}
+
+.tag,
+.tagFt8 {
+    fill: var(--rig-display);
+}
+
+/* FT8 працює 15-секундними циклами — мітка ледь помітно дихає в їхньому ритмі */
+.tagFt8 {
+    animation: ft8Cycle 15s ease-in-out infinite;
+}
+
+@keyframes ft8Cycle {
+    0%,
+    100% {
+        opacity: 0.72;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+.tagDim {
+    fill: rgba(70, 248, 180, 0.45);
+}
+
+.scaleLabel,
+.scaleLabelHot {
+    font-size: 10px;
+    font-family: var(--ifm-font-family-monospace);
+    letter-spacing: 0.04em;
+}
+
+.scaleLabel {
+    fill: rgba(255, 176, 32, 0.7);
+}
+
+.scaleLabelHot {
+    fill: rgba(246, 97, 81, 0.85);
+}
+
+/* ── Марка ──────────────────────────────────────────────── */
+.brand,
+.brandShadow {
+    font-size: 15px;
+    font-weight: 800;
+    font-family: var(--ifm-font-family-monospace);
+    letter-spacing: 0.24em;
+}
+
+.brand {
+    fill: rgba(255, 255, 255, 0.84);
+}
+
+/* Темна копія на піксель нижче дає ефект гравіювання по металу */
+.brandShadow {
+    fill: rgba(0, 0, 0, 0.6);
+}
+
+.brandModel {
+    fill: rgba(255, 255, 255, 0.3);
+    font-size: 9px;
+    font-weight: 700;
+    font-family: var(--ifm-font-family-monospace);
+    letter-spacing: 0.2em;
+}
+
+.brandMark circle {
+    fill: var(--ifm-color-primary);
+}
+
+.brandMark path {
+    fill: none;
+    stroke: var(--ifm-color-primary);
+    stroke-width: 1.7;
+    stroke-linecap: round;
+    opacity: 0.75;
+}
+
+/* ── S-метр ─────────────────────────────────────────────── */
+.meterSegOff {
+    fill: var(--rig-meter-track);
+}
+
+.meterSegLow {
+    fill: var(--rig-orange);
+}
+
+.meterSegHigh {
+    fill: #f66151;
+}
+
+.meterClip {
+    transform-origin: 60px 0;
+    animation: meterSwing 5.5s ease-in-out infinite;
+}
+
+@keyframes meterSwing {
+    0%,
+    100% {
+        transform: scaleX(0.28);
+    }
+    18% {
+        transform: scaleX(0.52);
+    }
+    34% {
+        transform: scaleX(0.4);
+    }
+    52% {
+        transform: scaleX(0.78);
+    }
+    68% {
+        transform: scaleX(0.46);
+    }
+    84% {
+        transform: scaleX(0.62);
+    }
+}
+
+/* Пікова мітка стрибає за рівнем і повільно сповзає назад — як у справжніх S-метрах */
+.meterPeak {
+    fill: var(--rig-orange);
+    animation: meterPeakHold 5.5s ease-out infinite;
+}
+
+@keyframes meterPeakHold {
+    0% {
+        transform: translateX(81px);
+    }
+    18% {
+        transform: translateX(151px);
+    }
+    34% {
+        transform: translateX(147px);
+    }
+    52% {
+        transform: translateX(226px);
+    }
+    68% {
+        transform: translateX(221px);
+    }
+    84% {
+        transform: translateX(214px);
+    }
+    100% {
+        transform: translateX(81px);
+    }
+}
+
+/* ── Панорама ───────────────────────────────────────────── */
+/* Смужки стоять впритул і трохи «дихають» — разом дають живий шумовий фон. */
+.specBar {
+    fill: var(--rig-orange);
+    opacity: 0.8;
+    transform-box: fill-box;
+    transform-origin: bottom;
+    animation-name: specNoise;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes specNoise {
+    from {
+        transform: scaleY(0.82);
+    }
+    to {
+        transform: scaleY(1.18);
+    }
+}
+
+/* Кореспондент, що проявляється і згасає. Довгий цикл — щоб це помічалось
+   краєм ока, а не тягнуло увагу на себе. */
+.specGhost rect {
+    fill: var(--rig-orange);
+}
+
+.specGhost {
+    animation: ghostSignal 19s ease-in-out infinite;
+}
+
+@keyframes ghostSignal {
+    0%,
+    20% {
+        opacity: 0;
+    }
+    40%,
+    58% {
+        opacity: 0.85;
+    }
+    78%,
+    100% {
+        opacity: 0;
+    }
+}
+
+/* ── Водоспад ───────────────────────────────────────────── */
+/* Рядки сповзають донизу: свіжі дані зʼявляються згори, як у справжньому приймачі. */
+.waterfall {
+    animation: waterfallScroll 7s linear infinite;
+}
+
+@keyframes waterfallScroll {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(20px);
+    }
+}
+
+/* Смуга приймання */
+.passband {
+    fill: var(--rig-amber);
+    opacity: 0.16;
+}
+
+/* ── Скло ───────────────────────────────────────────────── */
+/* Смуга світла проходить раз на 17 с і майже весь цикл стоїть за кадром. */
+.glassSweep {
+    animation: glassSweep 17s cubic-bezier(0.4, 0, 0.5, 1) infinite;
+}
+
+@keyframes glassSweep {
+    0%,
+    74% {
+        transform: translateX(-150px);
+    }
+    100% {
+        transform: translateX(520px);
+    }
+}
+
+/* ── Індикатори ─────────────────────────────────────────── */
+/* Один цикл із TX: поки трансивер передає, приймач мовчить. */
+.ledRx {
+    fill: #3ddc84;
+    animation: ledBreathe 5.5s ease-in-out infinite;
+}
+
+.ledTx {
+    fill: #f66151;
+    animation: ledBlink 5.5s ease-in-out infinite;
+}
+
+.ledLabel {
+    fill: rgba(255, 255, 255, 0.55);
+    font-size: 11px;
+    font-weight: 700;
+    font-family: var(--ifm-font-family-monospace);
+    letter-spacing: 0.1em;
+}
+
+@keyframes ledBreathe {
+    0% {
+        opacity: 0.5;
+    }
+    22% {
+        opacity: 1;
+    }
+    44% {
+        opacity: 0.5;
+    }
+    54%,
+    74% {
+        opacity: 0.1;
+    }
+    84% {
+        opacity: 0.6;
+    }
+    100% {
+        opacity: 0.5;
+    }
+}
+
+@keyframes ledBlink {
+    0%,
+    52%,
+    100% {
+        opacity: 0.16;
+    }
+    56%,
+    72% {
+        opacity: 1;
+    }
+    76% {
+        opacity: 0.16;
+    }
+}
+
+/* ── Ручки ──────────────────────────────────────────────── */
+/* Не рівномірне обертання, а підстроювання: поворот — пауза — поворот. */
+.knobSpin,
+.knobDimple {
+    animation: knobTune 13s ease-in-out infinite;
+}
+
+.knobSpin {
+    transform-origin: center;
+}
+
+.knobDimple {
+    transform-origin: 0 0;
+}
+
+@keyframes knobTune {
+    0%,
+    10% {
+        transform: rotate(0deg);
+    }
+    22%,
+    32% {
+        transform: rotate(34deg);
+    }
+    44%,
+    54% {
+        transform: rotate(18deg);
+    }
+    66%,
+    76% {
+        transform: rotate(62deg);
+    }
+    88%,
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+.knobLabel {
+    fill: rgba(255, 255, 255, 0.5);
+    font-size: 11px;
+    font-weight: 700;
+    font-family: var(--ifm-font-family-monospace);
+    letter-spacing: 0.08em;
+}
+
+/* ── Кнопки діапазонів ──────────────────────────────────── */
+.band {
+    fill: #2f343b;
+    stroke: var(--rig-edge);
+    stroke-width: 1.5;
+}
+
+.bandActive {
+    fill: var(--ifm-color-primary-darkest);
+    stroke: var(--ifm-color-primary);
+    stroke-width: 1.5;
+}
+
+.bandLabel {
+    fill: rgba(255, 255, 255, 0.72);
+    font-size: 12px;
+    font-weight: 700;
+    font-family: var(--ifm-font-family-monospace);
+}
+
+/* prefers-reduced-motion стосується руху, а не анімації взагалі: зміни
+   прозорості дискомфорту не викликають, тому світлодіоди, цифри частоти,
+   мітка FT8 і поява кореспондента лишаються живими навіть тут.
+   Вимикаємо тільки те, що рухається: прокрутку, обертання, масштабування. */
+@media (prefers-reduced-motion: reduce) {
+    .meterClip,
+    .meterPeak,
+    .specBar,
+    .waterfall,
+    .glassSweep,
+    .knobSpin,
+    .knobDimple {
+        animation: none;
+    }
+
+    /* Смуга світла без анімації просто стояла б посеред екрана */
+    .glassSweep {
+        opacity: 0;
+    }
+
+    /* Хвилі лишаються живими — міняємо масштабування на засвічування.
+       Тривалість, плавність і затримки успадковуються з базового правила. */
+    .wave {
+        animation-name: waveFade;
+    }
+
+    .meterClip {
+        transform: scaleX(0.52);
+    }
+
+    .meterPeak {
+        transform: translateX(151px);
+    }
+}

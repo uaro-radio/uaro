@@ -1,0 +1,75 @@
+---
+sidebar_position: 3
+title: J-pole antenna calculator
+description: Online J-pole antenna calculator — work out J-pole dimensions taking the resonance and velocity factors into account.
+keywords:
+  - J-pole antenna calculator - UR3PKI
+  - cyberdev.space
+tags: [UR3PKI, cyberdev-space, antennas, calculators]
+---
+import Calculator from '@site/src/components/jpole_calculator';
+import Head from '@docusaurus/Head';
+import AntennaImage from '@site/static/img/j-pole-antenna.png';
+
+<Head>
+    {/* === Canonical + SEO Control === */}
+    <link rel="canonical" href="https://cyberdev.space/radio/calculators/antennas/jpole" />
+    <meta name="robots" content="noindex, follow" />
+
+    {/* === Structured Data (Schema.org) === */}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="application/ld+json">
+        {`
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "J-pole antenna calculator | UR3PKI",
+      "url": "https://cyberdev.space/radio/calculators/antennas/jpole",
+      "applicationCategory": "CalculatorApplication",
+      "operatingSystem": "Any",
+      "description": "Online J-pole antenna calculator — work out J-pole dimensions taking the resonance and velocity factors into account.",
+      "inLanguage": "en",
+      "publisher": {
+        "@type": "Organization",
+        "name": "CyberDevSpace | UR3PKI",
+        "url": "https://cyberdev.space"
+      },
+      "isBasedOn": "https://cyberdev.space/radio/calculators/antennas/jpole"
+    }
+  `}
+    </script>
+    {/* OpenGraph / Twitter */}
+    <meta property="og:title" content="J-pole antenna calculator | UR3PKI" />
+    <meta property="og:description" content="J-pole antenna design — J-pole dimensions taking the resonance and velocity factors into account." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://cyberdev.space/radio/calculators/antennas/jpole" />
+    <meta property="og:image" content={AntennaImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+</Head>
+
+# J-pole antenna calculator
+
+:::info[About]
+This calculator works out the dimensions of a J-pole antenna (the J antenna).
+The J-pole is a popular type of vertical antenna for the VHF and UHF bands.
+:::
+
+<Calculator />
+
+:::warning[Notes]
+- **Standard frequencies:** pick one from the list of common frequencies or enter your own by hand.
+- **Units:** results can be shown in millimetres, centimetres or metres.
+- **Dimension A** — the length of the upper radiating element (3/4 λ).
+- **Dimension B** — the length of the lower element (1/4 λ).
+- **Distance C** — the distance from the feed point to the lower end.
+- **Dimension D** — an extra dimension used for tuning.
+- The velocity factor is calculated automatically from the frequency and the wire diameter.
+- The wire diameter affects the velocity factor and the overall dimensions of the antenna.
+- For best results, use wire of 2–6 mm diameter.
+- The antenna can be built from wire, tubing or metal strip.
+:::
+
+:::info[Calculator by UR3PKI]
+The most recent versions are available on the author's site:
+[CYBERDEV.SPACE - **J-pole** ](https://cyberdev.space/radio/calculators/antennas/jpole)
+:::

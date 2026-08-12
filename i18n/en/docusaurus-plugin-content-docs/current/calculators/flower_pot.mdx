@@ -1,0 +1,74 @@
+---
+sidebar_position: 1
+id: flower_pot
+title: Flower Pot antenna calculator
+description: Online Flower Pot calculator — work out the length of the dipole legs and the length of cable for the choke.
+keywords:
+  - Flower Pot antenna calculator - UR3PKI
+  - cyberdev.space
+tags: [UR3PKI, cyberdev-space, antennas, calculators]
+---
+
+import Head from '@docusaurus/Head';
+import Calculator from '@site/src/components/Calculator';
+import AntennaImage from '@site/static/img/flower_pot.jpg';
+
+<Head>
+    {/* === Canonical + SEO Control === */}
+    <link rel="canonical" href="https://cyberdev.space/radio/calculators/antennas/flower_pot" />
+    <meta name="robots" content="noindex, follow" />
+
+    {/* === Structured Data (Schema.org) === */}
+    <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "WebApplication",
+                "name": "Flower Pot antenna calculator | UR3PKI",
+                "url": "https://cyberdev.space/radio/calculators/antennas/flower_pot",
+                "applicationCategory": "CalculatorApplication",
+                "operatingSystem": "Any",
+                "inLanguage": "en",
+                "description": "Online Flower Pot antenna calculator — work out the length of the dipole legs and the length of cable for the choke balun, taking the resonance and cable velocity factors into account.",
+                "publisher": {
+                    "@type": "Organization",
+                    "name": "CyberDevSpace | UR3PKI",
+                    "url": "https://cyberdev.space"
+                },
+                "isBasedOn": "https://cyberdev.space/radio/calculators/antennas/flower_pot"
+            }),
+        }}
+    />
+
+    {/* === Open Graph / Twitter === */}
+    <meta property="og:title" content="Flower Pot antenna calculator | UR3PKI" />
+    <meta property="og:description" content="Flower Pot antenna design — leg lengths, choke cable length, factors" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://cyberdev.space/radio/calculators/antennas/flower_pot" />
+    <meta property="og:image" content={AntennaImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+</Head>
+
+#  Flower Pot antenna calculator
+
+:::info[About]
+This calculator works out the length of each element of a coaxial **Flower Pot** antenna.
+The calculation covers the length of the upper and lower dipole legs, and the length of
+cable needed to wind the choke balun.
+:::
+
+<Calculator />
+
+:::warning[Notes]
+- The resonance factor is a value between 5 and 10%; the default is 7.5%, the middle of that range.
+- The cable velocity factor is a constant that depends on the type of dielectric. For cables with a polyethylene dielectric, RG-58 among them, it is 0.66; for cables with a foamed dielectric it is 0.8.
+- The number of turns of the choke is not counted, because it depends on the diameter of the tube. What is calculated instead is the length of cable needed to wind it.
+- Wind clockwise or anticlockwise; the turns must lie tightly against one another. The start and the end of the winding must correspond exactly to the calculated cable length. Wind onto PVC tube of 20–40 mm diameter.
+- Important! The tube must not have a metal screen inside it, as that would disrupt the operation of the choke.
+:::
+
+:::info[Calculator by UR3PKI]
+The most recent versions are available on the author's site:
+[CYBERDEV.SPACE - **Flower Pot** ](https://cyberdev.space/radio/calculators/antennas/flower_pot)
+:::

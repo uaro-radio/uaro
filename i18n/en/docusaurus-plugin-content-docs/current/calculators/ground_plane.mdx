@@ -1,0 +1,67 @@
+---
+sidebar_position: 2
+title: Ground Plane antenna calculator
+description: Online Ground Plane antenna calculator — work out the length of the radiator and the radials.
+keywords:
+  - Ground Plane antenna calculator - UR3PKI
+  - cyberdev.space
+tags: [UR3PKI, cyberdev-space, antennas, calculators]
+---
+import Calculator from '@site/src/components/gp_calculator';
+import Head from '@docusaurus/Head';
+import AntennaImage from '@site/static/img/ground_plane.png';
+
+<Head>
+    {/* === Canonical + SEO Control === */}
+    <link rel="canonical" href="https://cyberdev.space/radio/calculators/antennas/ground_plane" />
+    <meta name="robots" content="noindex, follow" />
+
+    {/* === Structured Data (Schema.org) === */}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="application/ld+json">
+        {`
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Ground Plane antenna calculator | UR3PKI",
+      "url": "https://cyberdev.space/radio/calculators/antennas/ground_plane",
+      "applicationCategory": "CalculatorApplication",
+      "operatingSystem": "Any",
+      "description": "Online Ground Plane antenna calculator — work out the length of the radiator and the radials.",
+      "inLanguage": "en",
+      "publisher": {
+        "@type": "Organization",
+        "name": "CyberDevSpace | UR3PKI",
+        "url": "https://cyberdev.space"
+      },
+      "isBasedOn": "https://cyberdev.space/radio/calculators/antennas/ground_plane"
+    }
+  `}
+    </script>
+    {/* OpenGraph / Twitter */}
+    <meta property="og:title" content="Ground Plane antenna calculator | UR3PKI" />
+    <meta property="og:description" content="Ground Plane antenna design — the length of the radiator and the radials." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://cyberdev.space/radio/calculators/antennas/ground_plane" />
+    <meta property="og:image" content={AntennaImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+</Head>
+
+# Ground Plane antenna calculator
+
+:::info[About]
+This calculator determines the length of each element of a Ground Plane antenna.
+That covers the vertical radiator and the radials.
+:::
+
+<Calculator />
+
+:::warning[Notes]
+- The wavelength is calculated with the standard formula.
+- The calculation assumes a quarter-wave configuration.
+:::
+
+:::info
+The most recent versions are available at:
+[CYBERDEV.SPACE - **Ground Plane** ](https://cyberdev.space/radio/calculators/antennas/ground_plane)
+:::

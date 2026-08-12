@@ -1,0 +1,62 @@
+---
+sidebar_position: 2
+---
+
+# Cross-band LoRa networking and REPEATER (parrot) mode
+
+At present the **Meshtastic** project has no support for two SPI (or UART) LoRa modules to
+build a repeater or gateway for data between networks on different bands. Alternative MESH
+projects, however, offer this out of the box. In **CrossBand** mode, two-way half-duplex
+relaying of "any" data up to 250 bytes per packet is performed between two LoRa networks on
+"any" frequency, either in clear or under AES256, through the primary and secondary LoRa
+modules, with decryption at the other terminals.
+
+"Any" data and frequency here means whatever the specifications of the particular LoRa
+transceivers and the limits of the physical channel allow. Bear in mind that channel
+bandwidth and spreading factor are what determine the data rate. To avoid dropped packets,
+therefore, the interval between packets on the faster network must be longer than the
+transmission time on the slower one (the one with the higher SF and/or lower BW).
+<div style={{height: "450pt"}}>
+    <iframe
+        width="100%"
+        height="100%"
+        src="https://www.youtube.com/embed/TEi8OtjNWmY"
+        frameborder="0"
+        allow="autoplay; encrypted-media"
+        allowfullscreen>
+    </iframe>
+</div>
+
+## The CrossBand algorithm
+
+1. On receiving any data packet, for example on **EU_433 (Meshtastic)** at 433.575 MHz, the packet is relayed unchanged onto the preset chosen by the user (868 MHz, say).
+2. On receiving any packet on the user's chosen preset, the packet is relayed unchanged onto 433.575 MHz, the **EU_433 (Meshtastic)** channel.
+
+## What it makes possible
+
+1. Joining LoRa radio networks and **MESH on LoRa** networks (Meshtastic and others) together, both locally and over satellite links operating on different frequencies (433 and 868 MHz, for example, or even 2.4 GHz) and with different bandwidths and spreading factors. That is, bridges can be built between satellite channels and even between channels of different satellites.
+
+2. Improved radio concealment when working on a simplex channel.
+The **REPEATER** mode of the primary and/or secondary LoRa module extends the coverage of
+the radio network, or acts as a parrot. In this mode a packet is received and
+re-transmitted on the frequencies and with the parameters set individually for the primary
+and the secondary LoRa module.
+
+3. **CrossBand** and **REPEATER** modes can work either together or separately, in half duplex.
+
+4. Support for the **SX126x** (SX1261, SX1262, SX1268, LLCC68), **SX127x** (SX1272, SX1273, SX1276, SX1277, SX1278, SX1279) and **SX128x** (SX1280, SX1281, SX1282) transceiver families, with the primary and secondary radio modules configurable for LoRa or FSK.
+
+5. A shared SPI bus is used to connect the second LoRa module of the **SX126x**, **SX127x** or **SX128x** series. The control signals, however, need their own GPIO lines.
+
+## REPEATER mode
+
+This mode can be enabled independently for the primary and secondary radio modules, for
+work on a simplex channel or on split frequencies. Besides relaying text messages it can
+also relay voice messages between two distant correspondents who cannot hear each other,
+and a chain of several such repeaters can be built for better coverage of "difficult"
+terrain — that is, a peer-to-peer voice MESH — in the following modes:
+
+1. Open
+2. **AES256** encryption with a static key
+3. **AES256** encryption with a dynamic key, where a GPS module is fitted
+![CrossBand](@site/docs/authors_materials/UR3QJ/img/img.png)

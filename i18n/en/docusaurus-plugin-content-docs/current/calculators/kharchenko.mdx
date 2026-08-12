@@ -1,0 +1,78 @@
+---
+sidebar_position: 5
+title: Kharchenko (BiQuad) antenna calculator
+description: Online Kharchenko (BiQuad) antenna calculator — work out the antenna dimensions for a given frequency, impedance and set of units.
+keywords:
+  - Kharchenko antenna calculator - UR3PKI
+  - cyberdev.space
+tags: [UR3PKI, cyberdev-space, antennas, calculators]
+---
+import Calculator from '@site/src/components/kharchenko_calculator';
+import Head from '@docusaurus/Head';
+import AntennaImage from '@site/static/img/BiRombFig2.png';
+
+<Head>
+    {/* === Canonical + SEO Control === */}
+    <link rel="canonical" href="https://cyberdev.space/radio/calculators/antennas/kharchenko" />
+    <meta name="robots" content="noindex, follow" />
+
+    {/* === Structured Data (Schema.org) === */}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="application/ld+json">
+        {`
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Kharchenko (BiQuad) antenna calculator | UR3PKI",
+      "url": "https://cyberdev.space/radio/calculators/antennas/kharchenko",
+      "applicationCategory": "CalculatorApplication",
+      "operatingSystem": "Any",
+      "description": "Online Kharchenko (BiQuad) antenna calculator — work out the antenna dimensions for a given frequency, impedance and set of units.",
+      "inLanguage": "en",
+      "publisher": {
+        "@type": "Organization",
+        "name": "CyberDevSpace | UR3PKI",
+        "url": "https://cyberdev.space"
+      },
+      "isBasedOn": "https://cyberdev.space/radio/calculators/antennas/kharchenko"
+    }
+  `}
+    </script>
+    {/* OpenGraph / Twitter */}
+    <meta property="og:title" content="Kharchenko (BiQuad) antenna calculator | UR3PKI" />
+    <meta property="og:description" content="Kharchenko (BiQuad) antenna design — antenna dimensions for a given frequency, impedance and set of units." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://cyberdev.space/radio/calculators/antennas/kharchenko" />
+    <meta property="og:image" content={AntennaImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+</Head>
+
+# Kharchenko (BiQuad) antenna calculator
+
+:::info[About]
+This calculator works out the dimensions of a Kharchenko antenna (the zigzag BiQuad
+antenna). The Kharchenko is a high-gain directional antenna consisting of two square loops
+and a metal reflector. It is widely used for Wi-Fi, GSM, LTE and other applications.
+:::
+
+<Calculator />
+
+:::warning[Notes]
+- **Standard frequencies:** pick one from the list of common frequencies or enter your own by hand.
+- **Input impedance:** the standard values of 50 Ω and 75 Ω are supported.
+- **Units:** results can be shown in millimetres, centimetres or metres.
+- **Frequency range:** the calculator is optimised for the 400–3000 MHz range.
+- **Reflector:** made from sheet metal or fine metal mesh.
+- **Loop material:** use copper wire of the appropriate diameter (see the AWG size).
+- **Build accuracy:** to achieve the best performance, keep to the calculated dimensions within ±1 mm.
+- **Feed:** the coaxial cable connects at the centre of the lower loop, keeping to the calculated gap.
+- **Polarisation:** the antenna is linearly polarised in the plane of the loops.
+- **Gain:** typical gain is 10–12 dBi depending on frequency and build quality.
+- **Radiation pattern:** the beamwidth is roughly 60–70 degrees.
+- **Assembly:** the reflector must sit at exactly the calculated distance from the plane of the loops.
+:::
+
+:::info[Calculator by UR3PKI]
+The most recent versions are available on the author's site:
+[CYBERDEV.SPACE - **Kharchenko (BiQuad)** ](https://cyberdev.space/radio/calculators/antennas/kharchenko)
+:::
