@@ -1,0 +1,141 @@
+/* Логотип UARO — за зразком лого з блогу CyberDevSpace: емблема, риска
+   акценту, слово Oswald із вежею замість «A», у повному варіанті ще два
+   рядки назви. Розміри в em. */
+@font-face {
+  font-family: 'UaroOswald';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 200 700;
+  src: url(./fonts/oswald-latin-wght-normal.woff2) format('woff2-variations');
+}
+
+.brand {
+  --lk-text: #111111;
+  --lk-accent: #d98200;
+  --lk-dim: #5f646b;
+  display: flex;
+  align-items: center;
+  gap: 0.6em;
+  color: var(--lk-text);
+}
+
+/* На світлому тлі помаранчевий темніший, щоб рядок читався */
+:global(html[data-theme='dark']) .brand {
+  --lk-text: #eeeeee;
+  --lk-accent: #ffa500;
+  --lk-dim: #8a8f96;
+}
+
+/* ── Знак ── */
+.mark {
+  display: block;
+  flex: none;
+  height: 2.5em;
+  width: auto;
+}
+
+.full {
+  gap: 0.75em;
+}
+
+.full .mark {
+  height: 4.6em;
+  filter: drop-shadow(0 3px 6px rgb(0 0 0 / 28%));
+}
+
+/* ── Текст ── */
+.text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding-left: 0.7em;
+  border-left: 2px solid color-mix(in srgb, var(--lk-accent) 60%, transparent);
+}
+
+.full .text {
+  padding-left: 0.8em;
+}
+
+.title {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.4em;
+  font-family: 'UaroOswald', 'Oswald', 'Arial Narrow', sans-serif;
+  font-weight: 600;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+/* Місце над словом для хвиль */
+.full .title {
+  padding-top: 0.9em;
+}
+
+.word {
+  display: inline-flex;
+  align-items: flex-end;
+  font-size: 2.3em;
+  font-weight: 700;
+  line-height: 0.74;
+  letter-spacing: -0.01em;
+}
+
+.full .word {
+  font-size: 2.95em;
+}
+
+.glyph {
+  height: 0.82em;
+  width: auto;
+  margin: 0 0.03em;
+  overflow: visible;
+}
+
+.tower {
+  stroke: currentColor;
+}
+
+.ball {
+  fill: var(--lk-accent);
+}
+
+.waves {
+  stroke: var(--lk-accent);
+  stroke-width: 4.5;
+}
+
+.wave {
+  animation: wave 2.4s ease-in-out infinite;
+}
+
+.wave2 {
+  animation-delay: 0.25s;
+}
+
+@keyframes wave {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+  30% {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wave {
+    animation: none;
+  }
+}
+
+.lines {
+  display: flex;
+  flex-direction: column;
+  line-height: 0.92;
+  font-size: 1.02em;
+  letter-spacing: 0.03em;
+}
+
+.accent {
+  color: var(--lk-accent);
+}

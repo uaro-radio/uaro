@@ -8,6 +8,7 @@ import Heading from '@theme/Heading';
 import HomepageFeatures from '@site/src/components/HomepageFeatures';
 import RecentPosts from '@site/src/components/RecentPosts';
 import Transceiver from '@site/src/components/Transceiver';
+import UaroLogo from '@site/src/components/UaroLogo';
 
 import styles from './index.module.css';
 
@@ -20,8 +21,13 @@ function HomepageHeader() {
         <header className={styles.hero}>
             <div className={clsx('container', styles.heroInner)}>
                 <div className={styles.heroText}>
+                    {/* Заголовок — повний логотип; назва текстом лишається для
+                        пошуковиків і скрінрідерів */}
                     <Heading as="h1" className={styles.heroTitle}>
-                        {siteConfig.title}
+                        <span className={styles.srOnly}>
+                            {siteConfig.title} — Ukrainian Amateur Radio Operators
+                        </span>
+                        <UaroLogo full />
                     </Heading>
 
                     <p className={styles.heroLead}>

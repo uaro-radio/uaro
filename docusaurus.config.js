@@ -103,7 +103,6 @@ const config = {
         },
       },
       navbar: {
-        title: 'UARO',
         logo: {
           alt: 'UARO',
           src: 'img/new_logo.png',
