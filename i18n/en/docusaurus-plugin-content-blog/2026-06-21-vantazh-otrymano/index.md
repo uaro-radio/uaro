@@ -8,4 +8,6 @@ date: 2026-06-21T08:45:23+02:00
 Shipment received
 🇺🇦🤝🇸🇪
 
+<!-- truncate -->
+
 ![](@site/blog/2026-06-21-vantazh-otrymano/image1.jpg)

@@ -7,4 +7,6 @@ date: 2025-06-25T15:35:59+02:00
 ---
 We have filed documents to register copyright for our handbook on coaxial antennas.
 
+<!-- truncate -->
+
 ![](@site/blog/2025-06-25-koaksialni-antenu-avtorske-pravo/image1.jpg)
