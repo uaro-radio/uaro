@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkuaro_org_ua||=[]).push([[5430],{2185(a){a.exports=JSON.parse('{"tags":[{"label":"UARO","permalink":"/en/blog/tags/uaro-news","description":"Ukrainian Amateur Radio Operators news","count":29}]}')}}]);

@@ -1,0 +1,535 @@
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xsl" href="rss.xsl"?>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+    <channel>
+        <title>UARO Blog</title>
+        <link>https://uaro.org.ua/en/blog</link>
+        <description>UARO Blog</description>
+        <lastBuildDate>Fri, 04 Sep 2026 10:00:00 GMT</lastBuildDate>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>https://github.com/jpmonette/feed</generator>
+        <language>en</language>
+        <item>
+            <title><![CDATA[Один лог на двадцятьох — платформа для радіоаматорських нагород]]></title>
+            <link>https://uaro.org.ua/en/blog/uahamaward-platforma</link>
+            <guid>https://uaro.org.ua/en/blog/uahamaward-platforma</guid>
+            <pubDate>Fri, 04 Sep 2026 10:00:00 GMT</pubDate>
+            <description><![CDATA[Ідея цієї платформи — моя, архітектуру я закладав ще у 2025-му і писав її сам.]]></description>
+            <content:encoded><![CDATA[<p>Ідея цієї платформи — моя, архітектуру я закладав ще у 2025-му і писав її сам.</p>
+<p><strong>6 березня 2026-го</strong> я вперше показав її живою — з власного ноутбука, через ngrok, посилання
+жило до півночі. Уже тоді вона вела спільний лог, приймала зв'язки від WSJT-X по UDP,
+імпортувала ADIF із перевіркою дублів і мала окремі кабінети для хантера й для організатора.
+Наступного вечора з'явився міст для цифрових мод — під Windows, Linux і macOS.</p>
+<p>У квітні, через сім тижнів після того показу, паралельно йшла активність спецпозивним EN40CNP до
+40-х роковин Чорнобиля. Два тижні, 1565 зв'язків, кілька операторів — і весь лог зводили руками:
+платформа на той момент ще не була готова до бойового застосування. Той досвід найточніше
+сформулював Віталій UT0UI: <strong>«зливати логи постфактум руками — це те ще дрочилово»</strong>.</p>
+<p>До серпня вона була готова. Нижче — що з цього вийшло: платформа
+<a href="https://uahamaward.com/" target="_blank" rel="noopener noreferrer" class="">uahamaward.com</a>, на якій нагорода «35 річниця незалежності України»
+провела <strong>17 387 зв'язків за 31 день</strong>, і жоден із них ніхто не зводив руками — ні під час місяця,
+ні після нього.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="спершу-про-проблему">Спершу про проблему<a href="https://uaro.org.ua/en/blog/uahamaward-platforma#%D1%81%D0%BF%D0%B5%D1%80%D1%88%D1%83-%D0%BF%D1%80%D0%BE-%D0%BF%D1%80%D0%BE%D0%B1%D0%BB%D0%B5%D0%BC%D1%83" class="hash-link" aria-label="Direct link to Спершу про проблему" title="Direct link to Спершу про проблему" translate="no">​</a></h2>
+<p>Кожен веде свій лог. Потім усе зводиться в один файл. Потім виявляється, що двоє працювали
+одночасно на одній смузі й моді. Потім хтось загубив адіфку. Потім LoTW відмовляється приймати
+дублікати.</p>
+<p>На 1565 зв'язках це кілька вечорів. На сімнадцяти тисячах це вже не робота, а неможливість.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="чотири-вимоги">Чотири вимоги<a href="https://uaro.org.ua/en/blog/uahamaward-platforma#%D1%87%D0%BE%D1%82%D0%B8%D1%80%D0%B8-%D0%B2%D0%B8%D0%BC%D0%BE%D0%B3%D0%B8" class="hash-link" aria-label="Direct link to Чотири вимоги" title="Direct link to Чотири вимоги" translate="no">​</a></h2>
+<p>До серпневої активності я поставив собі не задачу «зробити сайт», а чотири конкретні болі, які
+треба закрити.</p>
+<ol>
+<li class=""><strong>Двоє не мають ставати на одну смугу й моду одночасно.</strong> Хтось має бачити, хто де зараз в
+ефірі — і бачити зараз, а не потім.</li>
+<li class=""><strong>Лог має бути спільним і живим.</strong> Не файл у кінці місяця, а таблиця, яку всі бачать у ту саму
+секунду.</li>
+<li class=""><strong>Диплом має рахуватися сам.</strong> Умови, бали, номер, PDF — без людини в циклі.</li>
+<li class=""><strong>ADIF на виході має прийматися LoTW і QRZ без правок.</strong> Не «майже правильний формат», а той,
+що заходить з першого разу.</li>
+</ol>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="що-вміє-платформа">Що вміє платформа<a href="https://uaro.org.ua/en/blog/uahamaward-platforma#%D1%89%D0%BE-%D0%B2%D0%BC%D1%96%D1%94-%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0" class="hash-link" aria-label="Direct link to Що вміє платформа" title="Direct link to Що вміє платформа" translate="no">​</a></h2>
+<p>Це не сайт із таблицею. Це кілька окремих програм, які працюють разом — і кожну з них можна брати
+окремо.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="спільний-лог-усі-бачать-одне-й-те-саме-зараз">Спільний лог: усі бачать одне й те саме, зараз<a href="https://uaro.org.ua/en/blog/uahamaward-platforma#%D1%81%D0%BF%D1%96%D0%BB%D1%8C%D0%BD%D0%B8%D0%B9-%D0%BB%D0%BE%D0%B3-%D1%83%D1%81%D1%96-%D0%B1%D0%B0%D1%87%D0%B0%D1%82%D1%8C-%D0%BE%D0%B4%D0%BD%D0%B5-%D0%B9-%D1%82%D0%B5-%D1%81%D0%B0%D0%BC%D0%B5-%D0%B7%D0%B0%D1%80%D0%B0%D0%B7" class="hash-link" aria-label="Direct link to Спільний лог: усі бачать одне й те саме, зараз" title="Direct link to Спільний лог: усі бачать одне й те саме, зараз" translate="no">​</a></h3>
+<p>Оператор відкриває панель активатора, тисне «вийти в ефір», обирає смугу й моду — і цей слот
+займається. Решта команди бачить його миттєво, без оновлення сторінки. Хто де сидить, на якій
+частоті, чим працює.</p>
+<ul>
+<li class="">Кожен зв'язок з'являється в загальному лозі за секунду.</li>
+<li class=""><strong>Дублі не пройдуть.</strong> Той самий кореспондент, смуга, мода й хвилина не запишуться двічі —
+навіть якщо дві вкладки надішлють їх одночасно. Це не рідкість: одна програма шле в дві
+вкладки, і обидві намагаються записати.</li>
+<li class="">Сесія, яку забули закрити, закривається сама через годину без зв'язків — щоб смуга не стояла
+зайнятою через того, хто просто закрив ноутбук.</li>
+<li class="">Помилку в лозі можна виправити або видалити; правки видно всім.</li>
+<li class="">Сторінка події й сторінка хантера — публічні, без реєстрації: кожен бачить хід активності й
+власний прогрес.</li>
+</ul>
+<figure class="post-shot"><p><img decoding="async" loading="lazy" alt="Сторінка логу під час роботи: панель трансивера, картка сесії в ефірі, спотинг і форма зв&amp;#39;язку" src="https://uaro.org.ua/en/assets/images/onair-25a6926d4ef00978bf828f0f0410caad.webp" width="1240" height="900" class="img_ev3q"></p><figcaption>Оператор у ефірі. Праворуч угорі — панель трансивера: частота й мода приходять з апарата, а не набираються руками. Смуга «Зараз в ефірі» показує всю команду. Нижче — картка сесії з частотою, позивним івенту, квадратом і лічильником зв'язків, а поруч перемикач спотингу: вимкнено, вручну, авто.</figcaption></figure>
+<figure class="post-shot"><p><img decoding="async" loading="lazy" alt="Таблиця логу нагороди з активаторами, кореспондентами, смугами й локаторами" src="https://uaro.org.ua/en/assets/images/log-table-7d2f0990281af417675015edbd947421.webp" width="1920" height="937" class="img_ev3q"></p><figcaption>Спільна таблиця: видно, хто з активаторів провів кожен зв'язок. За серпень — 1739 сторінок.</figcaption></figure>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="cat-трансивер-прямо-з-браузера">CAT: трансивер прямо з браузера<a href="https://uaro.org.ua/en/blog/uahamaward-platforma#cat-%D1%82%D1%80%D0%B0%D0%BD%D1%81%D0%B8%D0%B2%D0%B5%D1%80-%D0%BF%D1%80%D1%8F%D0%BC%D0%BE-%D0%B7-%D0%B1%D1%80%D0%B0%D1%83%D0%B7%D0%B5%D1%80%D0%B0" class="hash-link" aria-label="Direct link to CAT: трансивер прямо з браузера" title="Direct link to CAT: трансивер прямо з браузера" translate="no">​</a></h3>
+<p>Підключаєте трансивер по COM-порту — і сайт сам підставляє частоту й моду в форму зв'язку. Нічого
+встановлювати не треба: це працює в самому браузері.</p>
+<ul>
+<li class="">Частота й мода підтягуються з апарата, а не набираються руками.</li>
+<li class="">Керування VFO і смугою з тієї ж сторінки.</li>
+<li class=""><strong>172 моделі</strong> з коробки: Icom, Yaesu, Kenwood, Elecraft, Ten-Tec, Xiegu, FlexRadio, Alinco,
+JRC, AOR, Elad, Expert Electronics. Профілі беруться з формату OmniRig, тож апарат, якого в
+списку немає, додається файлом опису, а не переписуванням коду.</li>
+<li class="">Якщо CAT не потрібен — просто виберіть смугу й моду вручну, усе решта працює так само.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="міст-wsjt-x-пише-в-лог-сам">Міст: WSJT-X пише в лог сам<a href="https://uaro.org.ua/en/blog/uahamaward-platforma#%D0%BC%D1%96%D1%81%D1%82-wsjt-x-%D0%BF%D0%B8%D1%88%D0%B5-%D0%B2-%D0%BB%D0%BE%D0%B3-%D1%81%D0%B0%D0%BC" class="hash-link" aria-label="Direct link to Міст: WSJT-X пише в лог сам" title="Direct link to Міст: WSJT-X пише в лог сам" translate="no">​</a></h3>
+<p>Невелика програма на вашому комп'ютері: ловить пакети від WSJT-X і кладе зв'язок прямо в лог
+нагороди. Провели QSO — воно вже в загальній таблиці, і решта команди його бачить.</p>
+<ul>
+<li class="">Сім збірок: Windows, Linux, macOS (x86 і ARM) — качається зі сторінки й запускається подвійним
+кліком.</li>
+<li class=""><strong>Оновлюється сама</strong>, але тільки коли ви натиснете кнопку: міст тримає порт, який знає WSJT-X, і
+несподіваний перезапуск посеред активації — це втрачені зв'язки.</li>
+<li class="">Налаштування у вікні браузера, а не в командному рядку.</li>
+<li class=""><strong>Пересилає пакети далі</strong> — тож JTAlert, GridTracker чи N1MM працюють паралельно. WSJT-X уміє
+слати тільки на одну адресу, і саме через це раніше доводилося обирати щось одне.</li>
+</ul>
+<figure class="post-shot"><p><img decoding="async" loading="lazy" alt="Сторінка мосту WSJT-X зі схемою обміну даними й завантаженням під платформу" src="https://uaro.org.ua/en/assets/images/bridge-3a279afd16c88de8cb2c913bc10eb474.webp" width="1920" height="937" class="img_ev3q"></p><figcaption>Сторінка мосту: схема, що куди йде, і збірка під вашу систему визначається сама. Нічого не виходить назовні — міст слухає лише локальний порт.</figcaption></figure>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="власні-збірки-wsjt-x-і-wsjt-z-із-фільтром-країн">Власні збірки WSJT-X і WSJT-Z із фільтром країн<a href="https://uaro.org.ua/en/blog/uahamaward-platforma#%D0%B2%D0%BB%D0%B0%D1%81%D0%BD%D1%96-%D0%B7%D0%B1%D1%96%D1%80%D0%BA%D0%B8-wsjt-x-%D1%96-wsjt-z-%D1%96%D0%B7-%D1%84%D1%96%D0%BB%D1%8C%D1%82%D1%80%D0%BE%D0%BC-%D0%BA%D1%80%D0%B0%D1%97%D0%BD" class="hash-link" aria-label="Direct link to Власні збірки WSJT-X і WSJT-Z із фільтром країн" title="Direct link to Власні збірки WSJT-X і WSJT-Z із фільтром країн" translate="no">​</a></h3>
+<p>Дві збірки популярних програм для цифри — з тим, чого в оригіналах немає.</p>
+<ul>
+<li class=""><strong>Фільтр країн на рівні декодера.</strong> Обираєте країни зі списку DXCC: приховані станції не
+з'являються в жодному вікні, і програма не відповість їм навіть на прямий виклик. На відміну від
+наявних фільтрів, працює за країною, а не за збігом тексту — «лише Японія» ловить усі префікси
+разом.</li>
+<li class=""><strong>Прямий зв'язок із платформою.</strong> Записали QSO — воно одразу на сторінці нагороди. Окремий міст
+не потрібен.</li>
+<li class=""><strong>Український інтерфейс:</strong> меню, налаштування, підказки, помилки. Назви режимів і діапазонів
+лишилися англійськими — так звичніше.</li>
+<li class="">Дані позивного з QRZ.com прямо у вікні програми.</li>
+<li class="">Заразом виправлено помилку успадкованого коду: варто було відфільтрувати один сигнал — і зникали
+всі наступні в тому ж періоді.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="спотинг-анонси-в-dx-кластер">Спотинг: анонси в DX-кластер<a href="https://uaro.org.ua/en/blog/uahamaward-platforma#%D1%81%D0%BF%D0%BE%D1%82%D0%B8%D0%BD%D0%B3-%D0%B0%D0%BD%D0%BE%D0%BD%D1%81%D0%B8-%D0%B2-dx-%D0%BA%D0%BB%D0%B0%D1%81%D1%82%D0%B5%D1%80" class="hash-link" aria-label="Direct link to Спотинг: анонси в DX-кластер" title="Direct link to Спотинг: анонси в DX-кластер" translate="no">​</a></h3>
+<p>Зі сторінки логу, у два кліки — або автоматично, поки ви працюєте.</p>
+<ul>
+<li class="">Ручний спот і авто-режим із таймером.</li>
+<li class="">Таймер знає правила вузла, тож не зловите відмову за повтор. І враховує, що після зміни частоти
+спотити можна одразу.</li>
+<li class="">Стрічка спотів на сторінці логу: і чужі, і ваші, з позивним автора.</li>
+<li class="">Власний монітор кластера — аналог dxheat, тільки свій.</li>
+</ul>
+<figure class="post-shot"><p><img decoding="async" loading="lazy" alt="DX-монітор: споти з кластера в реальному часі з фільтрами за діапазонами й модами" src="https://uaro.org.ua/en/assets/images/dx-monitor-e9ceea4bf7c1369e599ed9e9edf3d7e6.webp" width="1920" height="937" class="img_ev3q"></p><figcaption>DX-монітор: споти з кластера в реальному часі, з фільтрами за діапазонами, модами й періодом. Країну кожного позивного визначає <b>та сама таблиця префіксів</b>, якою платформа зараховує зв'язки — тож те, що ви бачите в моніторі, і те, що потрапить у залік, рахується однаково.</figcaption></figure>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="дипломи-рахується-нумерується-і-збирається-саме">Дипломи: рахується, нумерується і збирається саме<a href="https://uaro.org.ua/en/blog/uahamaward-platforma#%D0%B4%D0%B8%D0%BF%D0%BB%D0%BE%D0%BC%D0%B8-%D1%80%D0%B0%D1%85%D1%83%D1%94%D1%82%D1%8C%D1%81%D1%8F-%D0%BD%D1%83%D0%BC%D0%B5%D1%80%D1%83%D1%94%D1%82%D1%8C%D1%81%D1%8F-%D1%96-%D0%B7%D0%B1%D0%B8%D1%80%D0%B0%D1%94%D1%82%D1%8C%D1%81%D1%8F-%D1%81%D0%B0%D0%BC%D0%B5" class="hash-link" aria-label="Direct link to Дипломи: рахується, нумерується і збирається саме" title="Direct link to Дипломи: рахується, нумерується і збирається саме" translate="no">​</a></h3>
+<p>Організатор описує умови в налаштуваннях нагороди — далі платформа робить решту.</p>
+<ul>
+<li class="">Умови: мінімум зв'язків або балів, окремі умови по модах і смугах, кілька груп умов одночасно.</li>
+<li class=""><strong>Особливі дні.</strong> Можна призначити множник на конкретні дати — у нас це були 23 і 24 серпня.
+Множник застосовується до заліку, а не до рядка логу, тож свято винагороджує три смуги, а не
+триста викликів на одній.</li>
+<li class=""><strong>Номер диплома — це місце в лозі.</strong> Черга рахується за датами зв'язків, а не за тим, хто перший
+натиснув «скачати». І кожна умова має власну нумерацію.</li>
+<li class="">PDF генерується двома мовами — тією, якою хантер відкрив сайт.</li>
+<li class="">Адіф, що прийшов через тиждень, займає в черзі те місце, яке заслужив датами: рол
+перераховується з логу.</li>
+</ul>
+<figure class="post-shot"><p><img decoding="async" loading="lazy" alt="Сторінка хантера з виконаними умовами й кнопками завантаження сертифікатів" src="https://uaro.org.ua/en/assets/images/certificates-bf7417de8b91777deb535eee45b08ef4.webp" width="1920" height="937" class="img_ev3q"></p><figcaption>Хантер виконав умови — сертифікати з номерами вже чекають. Дві умови, два окремі номери: «35 QSO №12» і «35 балів №12».</figcaption></figure>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="qsl--електронні-й-на-друк">QSL — електронні й на друк<a href="https://uaro.org.ua/en/blog/uahamaward-platforma#qsl--%D0%B5%D0%BB%D0%B5%D0%BA%D1%82%D1%80%D0%BE%D0%BD%D0%BD%D1%96-%D0%B9-%D0%BD%D0%B0-%D0%B4%D1%80%D1%83%D0%BA" class="hash-link" aria-label="Direct link to QSL — електронні й на друк" title="Direct link to QSL — електронні й на друк" translate="no">​</a></h3>
+<ul>
+<li class="">Електронна QSL для кожного зв'язку окремо: хантер відкриває свою сторінку, наводить на клітинку
+«смуга × мода» — і качає картку саме за той контакт.</li>
+<li class="">Макет під друк 140 × 90 мм, якщо картки замовляються паперові.</li>
+<li class="">Нічого не треба виписувати руками — за серпень так згенерувалося 62 дипломи й усі картки.</li>
+</ul>
+<figure class="post-shot"><p><img decoding="async" loading="lazy" alt="Матриця смуга × мода на сторінці хантера із зарахованими зв&amp;#39;язками" src="https://uaro.org.ua/en/assets/images/hunter-matrix-885eaeee094db235d41c72e1edaad97d.webp" width="1240" height="900" class="img_ev3q"></p><figcaption>Зелена клітинка — зв'язок зарахований, помаранчева — повтор. Клітинка в зеленій рамці з тарілкою означає, що <b>саме там зараз працює активатор</b>, а зв'язку ще немає — тобто туди й варто підійти.</figcaption></figure>
+<figure class="post-shot"><p><img decoding="async" loading="lazy" alt="Клітинка матриці, перевернута на зворот із кнопкою завантаження eQSL-картки" src="https://uaro.org.ua/en/assets/images/eqsl-67ca717844e7c73e64f791e694e02301.webp" width="1240" height="900" class="img_ev3q"></p><figcaption>Наведення на зарахований зв'язок перевертає клітинку — і звідти качається eQSL-картка саме за той контакт: за цю добу, цю смугу й цю моду.</figcaption></figure>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="adif-імпорт-експорт-і-те-що-приймає-lotw">ADIF: імпорт, експорт і те, що приймає LoTW<a href="https://uaro.org.ua/en/blog/uahamaward-platforma#adif-%D1%96%D0%BC%D0%BF%D0%BE%D1%80%D1%82-%D0%B5%D0%BA%D1%81%D0%BF%D0%BE%D1%80%D1%82-%D1%96-%D1%82%D0%B5-%D1%89%D0%BE-%D0%BF%D1%80%D0%B8%D0%B9%D0%BC%D0%B0%D1%94-lotw" class="hash-link" aria-label="Direct link to ADIF: імпорт, експорт і те, що приймає LoTW" title="Direct link to ADIF: імпорт, експорт і те, що приймає LoTW" translate="no">​</a></h3>
+<ul>
+<li class="">Імпорт файлу до 20 000 записів зі шкалою прогресу — повний місячний лог заходить за 15–20 секунд.</li>
+<li class="">Експорт, який <strong>QRZ.com і LoTW приймають без правок</strong>: правильна версія формату, коректні
+субмоди (ADIF не знає «FT4» як моду — це субмода MFSK, і саме так воно й пишеться).</li>
+<li class="">Частота скрізь у кілогерцах — у формі, у сесії, у мості. На виході перетворюється як належить,
+тож контакт не опиниться за 430 Гц від того місця, де його записав кореспондент.</li>
+<li class="">Щоденна копія всього логу на пошту організаторам — від разу до восьми разів на добу.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="qrzcom-звязки-їдуть-у-логбук-самі">QRZ.com: зв'язки їдуть у логбук самі<a href="https://uaro.org.ua/en/blog/uahamaward-platforma#qrzcom-%D0%B7%D0%B2%D1%8F%D0%B7%D0%BA%D0%B8-%D1%97%D0%B4%D1%83%D1%82%D1%8C-%D1%83-%D0%BB%D0%BE%D0%B3%D0%B1%D1%83%D0%BA-%D1%81%D0%B0%D0%BC%D1%96" class="hash-link" aria-label="Direct link to QRZ.com: зв'язки їдуть у логбук самі" title="Direct link to QRZ.com: зв'язки їдуть у логбук самі" translate="no">​</a></h3>
+<p>Якщо у вас є передплата <strong>XML Logbook Data</strong> на QRZ — вставте ключ свого логбука в налаштуваннях,
+і далі нічого робити не треба. Кожен проведений зв'язок платформа сама відвантажує до вашого
+логбука на QRZ. Ані експорту, ані ручного заливання адіфів.</p>
+<ul>
+<li class="">Працює у двох місцях: <strong>ваш особистий журнал</strong> їде у ваш логбук, а <strong>лог нагороди</strong> — у логбук
+нагороди.</li>
+<li class="">Це не одне й те саме навмисно: логбук на QRZ належить одному позивному, і зв'язки, проведені під
+позивним івенту, у ваш власний просто не приймуться. Тому в нагороди свій ключ.</li>
+<li class="">Видно стан кожного зв'язку окремо: надіслано, дубль, помилка — і що саме відповів QRZ, якщо не
+пройшло.</li>
+<li class="">Зв'язки, проведені до того, як ви вставили ключ, можна відправити заднім числом.</li>
+<li class="">Ключ зберігається зашифрованим і назад не показується — в інтерфейсі видно останні чотири
+символи.</li>
+<li class=""><strong>З іншого боку QRZ</strong> — довідник: порожні локатори в лозі заповнюються автоматично. Тільки
+порожні: наявний локатор з ефіру вартий більше за припущення про те, де станція зазвичай стоїть.
+Портативні позивні пропускаються, бо QRZ віддасть домашній квадрат, а зв'язок був не звідти.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="статистика-що-видно-про-подію-в-реальному-часі">Статистика: що видно про подію в реальному часі<a href="https://uaro.org.ua/en/blog/uahamaward-platforma#%D1%81%D1%82%D0%B0%D1%82%D0%B8%D1%81%D1%82%D0%B8%D0%BA%D0%B0-%D1%89%D0%BE-%D0%B2%D0%B8%D0%B4%D0%BD%D0%BE-%D0%BF%D1%80%D0%BE-%D0%BF%D0%BE%D0%B4%D1%96%D1%8E-%D0%B2-%D1%80%D0%B5%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%BC%D1%83-%D1%87%D0%B0%D1%81%D1%96" class="hash-link" aria-label="Direct link to Статистика: що видно про подію в реальному часі" title="Direct link to Статистика: що видно про подію в реальному часі" translate="no">​</a></h3>
+<ul>
+<li class="">Результативність кожного активатора: скільки, на яких смугах, якими модами.</li>
+<li class="">Покриття діапазонів по годинах — видно, де вже працювали, а де вас іще чекають.</li>
+<li class="">Мапа зв'язків: квадрати локаторів у справжніх межах, країни за кількістю QSO, окремий вигляд по
+областях України.</li>
+<li class="">Сторінка хантера: власний прогрес, скільки лишилося до умов, і хто з активаторів зараз в ефірі.</li>
+<li class="">Живий PNG-банер зі списком активних станцій — вставляється на сторінку QRZ.com чи власний сайт.</li>
+</ul>
+<figure class="post-shot"><p><img decoding="async" loading="lazy" alt="Активні станції нагороди й теплова сітка покриття діапазонів по годинах" src="https://uaro.org.ua/en/assets/images/active-stations-a2ebdd0a942cf06d974813cf550197d3.webp" width="1240" height="900" class="img_ev3q"></p><figcaption>Те, що бачить хантер: хто зараз в ефірі, на чому й з якого квадрата. Нижче — покриття діапазонів по годинах: де вже працювали, а де вас іще чекають.</figcaption></figure>
+<figure class="post-shot"><p><img decoding="async" loading="lazy" alt="Сторінка статистики нагороди з підсумковими картками й результативністю активаторів" src="https://uaro.org.ua/en/assets/images/stats-9e43e733ec3368791bf7958057e96103.webp" width="1240" height="860" class="img_ev3q"></p><figcaption>Статистика оновлюється в реальному часі й доступна без реєстрації.</figcaption></figure>
+<figure class="post-shot"><p><img decoding="async" loading="lazy" alt="Мапа зв&amp;#39;язків: квадрати локаторів і країни за кількістю QSO" src="https://uaro.org.ua/en/assets/images/map-c8d73acaade33821d45c91e1d092f106.webp" width="1240" height="860" class="img_ev3q"></p><figcaption>Мапа зв'язків: жовті прямокутники — квадрати локаторів, заливка країн — за позивним. Базовий шар платформа роздає сама, без чужих тайлів.</figcaption></figure>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="особистий-логбук-не-тільки-для-нагород">Особистий логбук: не тільки для нагород<a href="https://uaro.org.ua/en/blog/uahamaward-platforma#%D0%BE%D1%81%D0%BE%D0%B1%D0%B8%D1%81%D1%82%D0%B8%D0%B9-%D0%BB%D0%BE%D0%B3%D0%B1%D1%83%D0%BA-%D0%BD%D0%B5-%D1%82%D1%96%D0%BB%D1%8C%D0%BA%D0%B8-%D0%B4%D0%BB%D1%8F-%D0%BD%D0%B0%D0%B3%D0%BE%D1%80%D0%BE%D0%B4" class="hash-link" aria-label="Direct link to Особистий логбук: не тільки для нагород" title="Direct link to Особистий логбук: не тільки для нагород" translate="no">​</a></h3>
+<p>У кожного акаунта є власний журнал, окремий від будь-яких нагород: вносьте зв'язки руками або з
+WSJT-X, вантажте адіфки, вивантажуйте назад, вмикайте автосинк зі своїм логбуком на QRZ. Нагорода —
+окремий лог, ваш особистий — окремий, і вони не змішуються: зв'язок, проведений під позивним
+івенту, не потрапить у ваш власний журнал і навпаки.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="що-вийшло-за-місяць">Що вийшло за місяць<a href="https://uaro.org.ua/en/blog/uahamaward-platforma#%D1%89%D0%BE-%D0%B2%D0%B8%D0%B9%D1%88%D0%BB%D0%BE-%D0%B7%D0%B0-%D0%BC%D1%96%D1%81%D1%8F%D1%86%D1%8C" class="hash-link" aria-label="Direct link to Що вийшло за місяць" title="Direct link to Що вийшло за місяць" translate="no">​</a></h2>
+<table><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Зв'язків</td><td><strong>17 387</strong></td></tr><tr><td>Днів у ефірі</td><td>31</td></tr><tr><td>Кореспондентів</td><td>8 226</td></tr><tr><td>Територій DXCC (за LoTW)</td><td>124</td></tr><tr><td>Активаторів</td><td>17 позивних</td></tr><tr><td>Виконали умови диплома</td><td><strong>62</strong></td></tr><tr><td>Через QO-100</td><td>262 · 1,5 %</td></tr><tr><td>Локатор відомий</td><td>96,8 %</td></tr><tr><td>Переглядів сторінки на QRZ</td><td>100 000+</td></tr></tbody></table>
+<p><strong>Жодного зв'язку не зводили руками.</strong> Ні під час місяця, ні після нього.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="скільки-людей-це-побачило">Скільки людей це побачило<a href="https://uaro.org.ua/en/blog/uahamaward-platforma#%D1%81%D0%BA%D1%96%D0%BB%D1%8C%D0%BA%D0%B8-%D0%BB%D1%8E%D0%B4%D0%B5%D0%B9-%D1%86%D0%B5-%D0%BF%D0%BE%D0%B1%D0%B0%D1%87%D0%B8%D0%BB%D0%BE" class="hash-link" aria-label="Direct link to Скільки людей це побачило" title="Direct link to Скільки людей це побачило" translate="no">​</a></h2>
+<p>Від запуску платформи 25 липня.</p>
+<table><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Переглядів сторінок</td><td><strong>49 388</strong></td></tr><tr><td>Відвідувачів</td><td>4 376</td></tr><tr><td>Країн</td><td>59</td></tr><tr><td>З них зареєструвалися</td><td>123</td></tr></tbody></table>
+<p>Останній рядок тут найважливіший. <strong>4 376 людей скористалися платформою, а акаунт завели 123.</strong> Це
+не провал реєстрації — це так і задумано: хантеру акаунт не потрібен взагалі. Він відкриває
+сторінку події, вбиває свій позивний, бачить власний прогрес і забирає диплом. Реєстрація потрібна
+лише тому, хто сам виходить в ефір.</p>
+<p>59 країн — це вже не про нас із вами. Це люди, які шукали, за що їх зарахували, і знайшли
+українську сторінку.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="звідки-це-взялося">Звідки це взялося<a href="https://uaro.org.ua/en/blog/uahamaward-platforma#%D0%B7%D0%B2%D1%96%D0%B4%D0%BA%D0%B8-%D1%86%D0%B5-%D0%B2%D0%B7%D1%8F%D0%BB%D0%BE%D1%81%D1%8F" class="hash-link" aria-label="Direct link to Звідки це взялося" title="Direct link to Звідки це взялося" translate="no">​</a></h2>
+<p>Платформу я зробив сам — від ідеї та архітектури до продакшену, сервера й домену. Перший показ —
+6 березня 2026-го з ноутбука, перший бойовий івент — 1 серпня.</p>
+<table><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Окремих продуктів</td><td>5</td></tr><tr><td>Рядків коду й документації</td><td>100 000+</td></tr><tr><td>Автотестів на бекенді</td><td>483</td></tr><tr><td>Роботи однієї людини</td><td>понад рік</td></tr></tbody></table>
+<p>Кажу це не для оплесків, а щоб було зрозуміло, про що йдеться: це не сторінка з таблицею, зроблена
+за вихідні.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="скільки-це-коштує-вам">Скільки це коштує вам<a href="https://uaro.org.ua/en/blog/uahamaward-platforma#%D1%81%D0%BA%D1%96%D0%BB%D1%8C%D0%BA%D0%B8-%D1%86%D0%B5-%D0%BA%D0%BE%D1%88%D1%82%D1%83%D1%94-%D0%B2%D0%B0%D0%BC" class="hash-link" aria-label="Direct link to Скільки це коштує вам" title="Direct link to Скільки це коштує вам" translate="no">​</a></h2>
+<div class="theme-admonition theme-admonition-tip admonition_xJq3 alert alert--success"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 12 16"><path fill-rule="evenodd" d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"></path></svg></span>Для українських активностей — нічого</div><div class="admonitionContent_BuS1"><p>Ані організаторам, ані активаторам, ані хантерам. Сервер, домен і решта — мій клопіт. Якщо колись
+захочете підтримати донатом, буде приємно, але це ні на що не впливає й нічого не відкриває.</p><p>Хочу, щоб українські радіоаматори мали свій інструмент і не залежали від чужих. Решта — потім.</p></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="як-почати">Як почати<a href="https://uaro.org.ua/en/blog/uahamaward-platforma#%D1%8F%D0%BA-%D0%BF%D0%BE%D1%87%D0%B0%D1%82%D0%B8" class="hash-link" aria-label="Direct link to Як почати" title="Direct link to Як почати" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="якщо-ви-організовуєте-активність">Якщо ви організовуєте активність<a href="https://uaro.org.ua/en/blog/uahamaward-platforma#%D1%8F%D0%BA%D1%89%D0%BE-%D0%B2%D0%B8-%D0%BE%D1%80%D0%B3%D0%B0%D0%BD%D1%96%D0%B7%D0%BE%D0%B2%D1%83%D1%94%D1%82%D0%B5-%D0%B0%D0%BA%D1%82%D0%B8%D0%B2%D0%BD%D1%96%D1%81%D1%82%D1%8C" class="hash-link" aria-label="Direct link to Якщо ви організовуєте активність" title="Direct link to Якщо ви організовуєте активність" translate="no">​</a></h3>
+<ol>
+<li class=""><strong>Зареєструйтеся на <a href="https://uahamaward.com/" target="_blank" rel="noopener noreferrer" class="">uahamaward.com</a></strong> — хвилина, потрібна пошта й
+позивний.</li>
+<li class=""><strong>Напишіть мені — заведу вам нагороду.</strong> Назва, позивний, дати, умови диплома, картинка. Далі
+ви керуєте нею самі.</li>
+<li class=""><strong>Запросіть активаторів за позивними.</strong> Вони приймають запрошення в кабінеті й одразу можуть
+виходити в ефір.</li>
+<li class=""><strong>Працюйте.</strong> Лог, дипломи, QSL, статистика, вивантаження в QRZ — далі само.</li>
+</ol>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="якщо-ви-хантер">Якщо ви хантер<a href="https://uaro.org.ua/en/blog/uahamaward-platforma#%D1%8F%D0%BA%D1%89%D0%BE-%D0%B2%D0%B8-%D1%85%D0%B0%D0%BD%D1%82%D0%B5%D1%80" class="hash-link" aria-label="Direct link to Якщо ви хантер" title="Direct link to Якщо ви хантер" translate="no">​</a></h3>
+<p>Реєстрація не потрібна взагалі. Лог нагороди публічний: введіть свій позивний на сторінці події й
+побачите власний прогрес, скільки лишилося до умов і хто з активаторів зараз в ефірі. Диплом і QSL
+качаються звідти ж, щойно умови виконано.</p>
+<p>Платформа веде будь-яку нагороду — регіональну, клубну, всеукраїнську, активацію одного дня чи
+цілий місяць. Пишіть: <strong>UR3PKI</strong>. Допоможу завести, налаштувати умови й розібратися з мостом —
+особливо першого разу.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="і-трохи-цікавого-з-даних">І трохи цікавого з даних<a href="https://uaro.org.ua/en/blog/uahamaward-platforma#%D1%96-%D1%82%D1%80%D0%BE%D1%85%D0%B8-%D1%86%D1%96%D0%BA%D0%B0%D0%B2%D0%BE%D0%B3%D0%BE-%D0%B7-%D0%B4%D0%B0%D0%BD%D0%B8%D1%85" class="hash-link" aria-label="Direct link to І трохи цікавого з даних" title="Direct link to І трохи цікавого з даних" translate="no">​</a></h2>
+<p>Коли лог лежить у базі, а не в тридцяти файлах, з нього можна щось дізнатися. Я розібрав серпень:
+як денний обсяг залежить від сонячних індексів (майже ніяк — рулить календар), а високі діапазони
+таки залежать; чому медіанна відстань падає, коли потік росте; куди дістає радіотелетайп і хто
+працював через геостаціонар.</p>
+<p><strong><a href="https://cyberdev.space/blog/award-35-analysis" target="_blank" rel="noopener noreferrer" class="">→ 17 387 зв'язків за серпень: аналітичний розбір логу</a></strong></p>
+<hr>
+<p><em>Оригінал статті: <a href="https://cyberdev.space/blog/uahamaward" target="_blank" rel="noopener noreferrer" class="">CyberDevSpace</a></em></p>
+<p>73! Петро, UR3PKI</p>]]></content:encoded>
+            <category>UARO</category>
+        </item>
+        <item>
+            <title><![CDATA[Аналітика EN35UKR: що показав лог за серпень]]></title>
+            <link>https://uaro.org.ua/en/blog/analitika-en35ukr</link>
+            <guid>https://uaro.org.ua/en/blog/analitika-en35ukr</guid>
+            <pubDate>Wed, 02 Sep 2026 10:00:00 GMT</pubDate>
+            <description><![CDATA[Після завершення дипломної програми EN35UKR я проаналізував весь лог — 17 387 зв'язків, 8 226 позивних, 99 країн за 31 день. Ось кілька неочікуваних висновків.]]></description>
+            <content:encoded><![CDATA[<p>Після завершення дипломної програми <a href="https://www.qrz.com/db/EN35UKR" target="_blank" rel="noopener noreferrer" class="">EN35UKR</a> я проаналізував весь лог — 17 387 зв'язків, 8 226 позивних, 99 країн за 31 день. Ось кілька неочікуваних висновків.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="вихідні-важать-більше-за-сонце">Вихідні важать більше за сонце<a href="https://uaro.org.ua/en/blog/analitika-en35ukr#%D0%B2%D0%B8%D1%85%D1%96%D0%B4%D0%BD%D1%96-%D0%B2%D0%B0%D0%B6%D0%B0%D1%82%D1%8C-%D0%B1%D1%96%D0%BB%D1%8C%D1%88%D0%B5-%D0%B7%D0%B0-%D1%81%D0%BE%D0%BD%D1%86%D0%B5" class="hash-link" aria-label="Direct link to Вихідні важать більше за сонце" title="Direct link to Вихідні важать більше за сонце" translate="no">​</a></h2>
+<p>Кореляція між кількістю зв'язків за день та індексом сонячного випромінювання (SFI) — лише <strong>0,12</strong>. А ось різниця між буднями та вихідними суттєва: у середньому <strong>615</strong> зв'язків на вихідні проти <strong>523</strong> у будні. Три з чотирьох найбільших днів місяця — субота або неділя.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="високі-діапазони-слухають-сонце-низькі--ні">Високі діапазони слухають сонце, низькі — ні<a href="https://uaro.org.ua/en/blog/analitika-en35ukr#%D0%B2%D0%B8%D1%81%D0%BE%D0%BA%D1%96-%D0%B4%D1%96%D0%B0%D0%BF%D0%B0%D0%B7%D0%BE%D0%BD%D0%B8-%D1%81%D0%BB%D1%83%D1%85%D0%B0%D1%8E%D1%82%D1%8C-%D1%81%D0%BE%D0%BD%D1%86%D0%B5-%D0%BD%D0%B8%D0%B7%D1%8C%D0%BA%D1%96--%D0%BD%D1%96" class="hash-link" aria-label="Direct link to Високі діапазони слухають сонце, низькі — ні" title="Direct link to Високі діапазони слухають сонце, низькі — ні" translate="no">​</a></h2>
+<p>10–17 м корелюють із SFI (r = 0,35): коли потік піднявся з ~94 до 143, 10 м дійшло до 99 зв'язків за день. А ось магнітні бурі 2–3 серпня (Kp до 5,7) дали мінімуми на 40/80 м — 223 зв'язки.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="ft8-бачить-далі-за-ssb">FT8 бачить далі за SSB<a href="https://uaro.org.ua/en/blog/analitika-en35ukr#ft8-%D0%B1%D0%B0%D1%87%D0%B8%D1%82%D1%8C-%D0%B4%D0%B0%D0%BB%D1%96-%D0%B7%D0%B0-ssb" class="hash-link" aria-label="Direct link to FT8 бачить далі за SSB" title="Direct link to FT8 бачить далі за SSB" translate="no">​</a></h2>
+<p>Медіанна відстань FT8 значно перевищує SSB. Але це не лише фізика — FT8 працюють, коли DX уже чути, а SSB — коли співрозмовника ще можна розібрати. Порівнюються не моди, а звички разом із фізикою.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="супутник-qo-100--262-звязки">Супутник QO-100 — 262 зв'язки<a href="https://uaro.org.ua/en/blog/analitika-en35ukr#%D1%81%D1%83%D0%BF%D1%83%D1%82%D0%BD%D0%B8%D0%BA-qo-100--262-%D0%B7%D0%B2%D1%8F%D0%B7%D0%BA%D0%B8" class="hash-link" aria-label="Direct link to Супутник QO-100 — 262 зв'язки" title="Direct link to Супутник QO-100 — 262 зв'язки" translate="no">​</a></h2>
+<p>1,51% усього логу пройшли не крізь іоносферу, а через геостаціонарний транспондер QO-100. Один активатор за 14 днів зібрав 194 кореспонденти з 34 країн — половина Європи з однієї точки, без залежності від проходження.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="кістяк-тримають-десятки">Кістяк тримають десятки<a href="https://uaro.org.ua/en/blog/analitika-en35ukr#%D0%BA%D1%96%D1%81%D1%82%D1%8F%D0%BA-%D1%82%D1%80%D0%B8%D0%BC%D0%B0%D1%8E%D1%82%D1%8C-%D0%B4%D0%B5%D1%81%D1%8F%D1%82%D0%BA%D0%B8" class="hash-link" aria-label="Direct link to Кістяк тримають десятки" title="Direct link to Кістяк тримають десятки" translate="no">​</a></h2>
+<p>67,8% позивних вийшли на зв'язок лише один раз. Але верхні 10% хантерів дають <strong>44,1%</strong> усіх зв'язків — і 54 станції поверталися 10 днів і більше.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="радіоспорт--хобі-заможних-країн">Радіоспорт — хобі заможних країн<a href="https://uaro.org.ua/en/blog/analitika-en35ukr#%D1%80%D0%B0%D0%B4%D1%96%D0%BE%D1%81%D0%BF%D0%BE%D1%80%D1%82--%D1%85%D0%BE%D0%B1%D1%96-%D0%B7%D0%B0%D0%BC%D0%BE%D0%B6%D0%BD%D0%B8%D1%85-%D0%BA%D1%80%D0%B0%D1%97%D0%BD" class="hash-link" aria-label="Direct link to Радіоспорт — хобі заможних країн" title="Direct link to Радіоспорт — хобі заможних країн" translate="no">​</a></h2>
+<p>Кореляція між кількістю зв'язків країни та її ВВП на душу населення — 0,52. 48 країн з ВВП понад 40 000 $ дають 75,9% усіх зв'язків. Виняток — Україна: 19,8% зв'язків при ВВП ~18 600 $ завдяки домашньому ефекту нагороди.</p>
+<hr>
+<p>Повний аналіз з графіками, інтерактивною мапою, кореляціями та таблицями — у статті на <a href="https://cyberdev.space/blog/award-35-analysis" target="_blank" rel="noopener noreferrer" class="">CyberDevSpace: «17 387 зв'язків за серпень — що видно в лозі радіоаматорської нагороди»</a>.</p>]]></content:encoded>
+            <category>UARO</category>
+        </item>
+        <item>
+            <title><![CDATA[Підсумки дипломної програми EN35UKR]]></title>
+            <link>https://uaro.org.ua/en/blog/pidsumky-en35ukr</link>
+            <guid>https://uaro.org.ua/en/blog/pidsumky-en35ukr</guid>
+            <pubDate>Tue, 01 Sep 2026 10:00:00 GMT</pubDate>
+            <description><![CDATA[Вітаю, шановне товариство! Закінчилася активність та дипломна програма EN35UKR, присвячена 35-й річниці Незалежності України, організована UARO, Запорізьким Радіоклубом та Всеукраїнською Радіоаматорською Аварійною Спілкою.]]></description>
+            <content:encoded><![CDATA[<p>Вітаю, шановне товариство! Закінчилася активність та дипломна програма <a href="https://www.qrz.com/db/EN35UKR" target="_blank" rel="noopener noreferrer" class="">EN35UKR</a>, присвячена 35-й річниці Незалежності України, організована UARO, Запорізьким Радіоклубом та Всеукраїнською Радіоаматорською Аварійною Спілкою.</p>
+<p>Трохи сухої статистики:</p>
+<ul>
+<li class="">Колектив активаторів спеціального позивного складався з <strong>17 радіоаматорських позивних</strong> і більш ніж <strong>20 людей</strong>.</li>
+<li class="">За місяць командою було проведено <strong>17 387 зв'язків</strong> (з яких голосом і телеграфом майже 3 тисячі) з понад <strong>124 країнами світу</strong>.</li>
+<li class="">Умови диплому виконало <strong>62 людини</strong>, серед яких <strong>40 аматорів з України</strong>.</li>
+<li class="">Сторінка на <a href="https://www.qrz.com/db/EN35UKR" target="_blank" rel="noopener noreferrer" class="">qrz.com</a> має більш ніж <strong>100 тисяч переглядів</strong>.</li>
+<li class="">Більш детальну статистику можна переглянути на сторінці диплому на <a href="https://uahamaward.com/awards/019f95c0-1e60-7209-9248-c12a3911bbc1/stats" target="_blank" rel="noopener noreferrer" class="">UaHamAward.com</a>.</li>
+</ul>
+<p>А тепер без сухих цифр.</p>
+<p>Величезна подяка <strong>UX2QX</strong>, колективу <strong>UR4QWW</strong> та <strong>UR3QCB</strong> — дві третини всіх проведених зв'язків за ними! Дякую всім, хто працював SSB/CW: <strong>UX2CT</strong>, <strong>UR3QNV</strong>, <strong>UR7HNF</strong>, <strong>UT1PG</strong> та <strong>UR0UE</strong> — у нас кількість QSO телеграфом більша за SSB :)</p>
+<p>Також дякую колегам зі Львова та Франківська — <strong>UR5WAI</strong>, <strong>US5WCE</strong>, <strong>UX5WF</strong> та <strong>UT3ST</strong> — знаю, як важко виділити час всім нам, але ви додали нам всеукраїнського масштабу, як і <strong>UT3UIY</strong> зі своєї незвичної локації та умов.</p>
+<p>Серед активаторів двоє діючих військовослужбовців і жменька колишніх, що теж свій шарм привнесло :)</p>
+<p><strong>Сергій Ребров UT5UDX</strong> приєднався за тиждень до кінця, але виклався на всі 100, за що йому окремий респект! Ну і, звісно, без <strong>Петра <a href="https://cyberdev.space/" target="_blank" rel="noopener noreferrer" class="">UR3PKI</a></strong> не було б <a href="https://uahamaward.com/awards/019f95c0-1e60-7209-9248-c12a3911bbc1" target="_blank" rel="noopener noreferrer" class="">платформи</a> дипломної програми.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="топ-хантерів">Топ хантерів<a href="https://uaro.org.ua/en/blog/pidsumky-en35ukr#%D1%82%D0%BE%D0%BF-%D1%85%D0%B0%D0%BD%D1%82%D0%B5%D1%80%D1%96%D0%B2" class="hash-link" aria-label="Direct link to Топ хантерів" title="Direct link to Топ хантерів" translate="no">​</a></h3>
+<p>Дипломна програма мала умову набрати 35 балів за зв'язки зі спецпозивним. Але деякі хантери влаштували справжній батл за кількість проведених QSO! У топ-3 увійшли:</p>
+<table><thead><tr><th>Місце</th><th>Позивний</th><th>Бали</th><th>QSO</th></tr></thead><tbody><tr><td>🥇</td><td><strong>UR3QQV</strong></td><td>419</td><td>323</td></tr><tr><td>🥈</td><td><strong>UX0KR</strong></td><td>284</td><td>212</td></tr><tr><td>🥉</td><td><strong>UR3QRP</strong></td><td>235</td><td>235</td></tr></tbody></table>
+<p>Для них папланово (серйозно, ми геть не планували!) будуть окремі призи.</p>
+<p>А від себе хочу відзначити іноземних колег, які теж активно боролися за місце в топах, та шановних <strong>US1MM</strong> та <strong>UR8MH</strong> — не зважаючи на війну і вимушену зміну місця проживання вони виконали і перевиконали диплом. Ми боремось в тому числі і за те, щоб наші друзі, чиї домівки зараз окуповані, змогли працювати з власних QTH українськими позивними.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="аналітика-логу">Аналітика логу<a href="https://uaro.org.ua/en/blog/pidsumky-en35ukr#%D0%B0%D0%BD%D0%B0%D0%BB%D1%96%D1%82%D0%B8%D0%BA%D0%B0-%D0%BB%D0%BE%D0%B3%D1%83" class="hash-link" aria-label="Direct link to Аналітика логу" title="Direct link to Аналітика логу" translate="no">​</a></h3>
+<p>Для тих, хто любить цифри глибше — повний аналіз логу нагороди з графіками, мапою та кореляціями: чому суботи важать більше за сонце, як далеко дістає FT8 порівняно з SSB, і чому радіоспорт залишається хобі заможних країн. 17 387 зв'язків, 99 країн, 8 226 позивних — і жодного «просто пощастило з проходженням».</p>
+<p>Детальніше — у <a href="https://cyberdev.space/blog/award-35-analysis" target="_blank" rel="noopener noreferrer" class="">повному аналізі на CyberDevSpace</a>.</p>
+<hr>
+<p>Це був наш перший, але не останній івент. Дякуємо всім, хто долучився! QSL картки та дипломи в електронній формі можна скачати на <a href="https://uahamaward.com/awards/019f95c0-1e60-7209-9248-c12a3911bbc1/stats" target="_blank" rel="noopener noreferrer" class="">сайті</a>, за паперовими дипломами та картками звертайтеся напряму до <a href="https://www.qrz.com/db/UT2UCN" target="_blank" rel="noopener noreferrer" class="">UT2UCN</a>.</p>
+<p><strong>Слава Україні!</strong></p>]]></content:encoded>
+            <category>UARO</category>
+        </item>
+        <item>
+            <title><![CDATA[A double celebration: Signal Corps Day and the creation of UT4UWW]]></title>
+            <link>https://uaro.org.ua/en/blog/ut4uww-den-vijsk-zvyazku</link>
+            <guid>https://uaro.org.ua/en/blog/ut4uww-den-vijsk-zvyazku</guid>
+            <pubDate>Sat, 08 Aug 2026 09:15:33 GMT</pubDate>
+            <description><![CDATA[Today we have a double celebration: Signal Corps Day and the day of the official creation of UT4UWW — our UARO RADIO CLUB club radio station. Congratulations to everyone involved!]]></description>
+            <content:encoded><![CDATA[<p>Today we have a double celebration: Signal Corps Day and the day of the official creation of UT4UWW — our UARO RADIO CLUB club radio station. Congratulations to everyone involved!
+73 de UT4UWW</p>
+<p><img decoding="async" loading="lazy" src="https://uaro.org.ua/en/assets/images/image1-462dac1092986151c57f31745a973078.jpg" width="907" height="1280" class="img_ev3q"></p>]]></content:encoded>
+            <category>UARO</category>
+        </item>
+        <item>
+            <title><![CDATA[The EN35UKR award and special callsign for the 35th anniversary of Independence]]></title>
+            <link>https://uaro.org.ua/en/blog/en35ukr-den-nezalezhnosti</link>
+            <guid>https://uaro.org.ua/en/blog/en35ukr-den-nezalezhnosti</guid>
+            <pubDate>Thu, 30 Jul 2026 20:39:57 GMT</pubDate>
+            <description><![CDATA[Dear friends! On the occasion of the 35th anniversary of Ukraine's independence, the NGO «Ukrainian Amateur Radio Operators», the NGO «All-Ukrainian Radio Amateur Emergency Union» and the NGO «Zaporizhzhia Radio Club» have established a commemorative award and the operation of the special callsign EN35UKR. The special callsign will be on the air from 1 to 31 August on the 80, 40, 30, 20, 17, 15, 12, 10, 2 m and 70 cm bands in all permitted modes; the operation will be carried out by a team of radio amateurs from all corners of Ukraine. The award conditions are simple//www.qrz.com/db/EN35UKR) or on uahamaward.com (https://uahamaward.com/awards/019f95c0-1e60-7209-9248-c12a3911bbc1). Those who wish may contact the organisers to exchange QSL cards for a completed contact. See you on the air. Glory to Ukraine!]]></description>
+            <content:encoded><![CDATA[<p>Dear friends! On the occasion of the 35th anniversary of Ukraine's independence, the NGO «Ukrainian Amateur Radio Operators», the NGO «All-Ukrainian Radio Amateur Emergency Union» and the NGO «Zaporizhzhia Radio Club» have established a commemorative award and the operation of the special callsign EN35UKR. The special callsign will be on the air from 1 to 31 August on the 80, 40, 30, 20, 17, 15, 12, 10, 2 m and 70 cm bands in all permitted modes; the operation will be carried out by a team of radio amateurs from all corners of Ukraine. The award conditions are simple: 35 QSOs made with the special callsign on different bands using different modes. Repeats on different days are allowed. You can follow the callsign's activity on the air on the qrz.com page (<a href="https://www.qrz.com/db/EN35UKR" target="_blank" rel="noopener noreferrer" class="">https://www.qrz.com/db/EN35UKR</a>) or on uahamaward.com (<a href="https://uahamaward.com/awards/019f95c0-1e60-7209-9248-c12a3911bbc1" target="_blank" rel="noopener noreferrer" class="">https://uahamaward.com/awards/019f95c0-1e60-7209-9248-c12a3911bbc1</a>). Those who wish may contact the organisers to exchange QSL cards for a completed contact. See you on the air. Glory to Ukraine!</p>
+<p><img decoding="async" loading="lazy" src="https://uaro.org.ua/en/assets/images/image1-ea55dceef3ba4d450aa7488e154f4e54.jpg" width="1199" height="734" class="img_ev3q"></p>]]></content:encoded>
+            <category>UARO</category>
+        </item>
+        <item>
+            <title><![CDATA[Equipment from SK7RN — for children's club stations]]></title>
+            <link>https://uaro.org.ua/en/blog/obladnannya-dytyachym-kolektyvkam</link>
+            <guid>https://uaro.org.ua/en/blog/obladnannya-dytyachym-kolektyvkam</guid>
+            <pubDate>Wed, 01 Jul 2026 15:03:23 GMT</pubDate>
+            <description><![CDATA[Equipment from the Swedish club SK7RN is already finding its new owners 🫡]]></description>
+            <content:encoded><![CDATA[<p>Equipment from the Swedish club SK7RN is already finding its new owners 🫡</p>
+<p>Earlier we spoke about the help from the Swedish club SK7RN in the form of boxes of equipment. Well, all this equipment is already finding its new owners — children's and youth club stations, clubs and sports schools. The UX6FZZ team was chosen for a reason: it is the most active children's club station thanks to its tireless leader Mykola Lavretsia UX0FF. The club was given an HF transceiver, several handhelds and other pleasant bonuses. And this is only the beginning :)
+P.S. If you are a leader of a club station or a group — contact the admins with a request, we will be glad to help!</p>
+<p><img decoding="async" loading="lazy" src="https://uaro.org.ua/en/assets/images/image1-72090e77eac2f133c0c9cfc5549049ba.jpg" width="1235" height="1740" class="img_ev3q"></p>]]></content:encoded>
+            <category>UARO</category>
+        </item>
+        <item>
+            <title><![CDATA[Our Swedish friends: the equipment is already on its way to Ukraine]]></title>
+            <link>https://uaro.org.ua/en/blog/shvedski-druzi-operation-change</link>
+            <guid>https://uaro.org.ua/en/blog/shvedski-druzi-operation-change</guid>
+            <pubDate>Mon, 22 Jun 2026 12:19:55 GMT</pubDate>
+            <description><![CDATA[You rejoice and marvel...]]></description>
+            <content:encoded><![CDATA[<p>You rejoice and marvel...
+...at the generosity of radio amateurs from all over the country who are handing equipment to our friends in Ukraine. And they even cover great distances to deliver it to Operation Change. In the photo the head of Op-Change, Göran Skoglund, receives this week's «harvest» in Sollentuna from, among others, SM5FXK/Ulf and SMØEOQ/Bo. Great thanks to you and to all the other donors, not least those who handed the shipment to the terminal in Nybro via SM7OHE/Rolf in Färjestaden.
+By the way, I heard that the first pallet of radio equipment is already at the border with Ukraine.
+But radio clubs in Ukraine have great needs, so take a look at how you too can help.
+73 de SMØDMY</p>
+<p><a href="https://www.facebook.com/share/p/18wqvbigtN/" target="_blank" rel="noopener noreferrer" class="">https://www.facebook.com/share/p/18wqvbigtN/</a></p>
+<p>We are sincerely grateful to our Swedish friends for their support!</p>
+<p><img decoding="async" loading="lazy" src="https://uaro.org.ua/en/assets/images/image1-296aa8c7be2cf223f0493d6574b2a481.jpg" width="1102" height="2048" class="img_ev3q">
+<img decoding="async" loading="lazy" src="https://uaro.org.ua/en/assets/images/image2-e72c03a04371fa7eee96434d4f7e82a6.jpg" width="1926" height="1312" class="img_ev3q">
+<img decoding="async" loading="lazy" src="https://uaro.org.ua/en/assets/images/image3-ebbec3d66caa2d98ab1255edf23a46d2.jpg" width="1355" height="1968" class="img_ev3q"></p>]]></content:encoded>
+            <category>UARO</category>
+        </item>
+        <item>
+            <title><![CDATA[The shipment from Sweden has arrived]]></title>
+            <link>https://uaro.org.ua/en/blog/vantazh-otrymano</link>
+            <guid>https://uaro.org.ua/en/blog/vantazh-otrymano</guid>
+            <pubDate>Sun, 21 Jun 2026 06:45:23 GMT</pubDate>
+            <description><![CDATA[Shipment received]]></description>
+            <content:encoded><![CDATA[<p>Shipment received
+🇺🇦🤝🇸🇪</p>
+<p><img decoding="async" loading="lazy" src="https://uaro.org.ua/en/assets/images/image1-9f8917e2562d209faf4b708a4ce7ff65.jpg" width="960" height="1280" class="img_ev3q"></p>]]></content:encoded>
+            <category>UARO</category>
+        </item>
+        <item>
+            <title><![CDATA[A personal handover]]></title>
+            <link>https://uaro.org.ua/en/blog/osobyste-vruchennya</link>
+            <guid>https://uaro.org.ua/en/blog/osobyste-vruchennya</guid>
+            <pubDate>Wed, 10 Jun 2026 04:24:44 GMT</pubDate>
+            <description><![CDATA[Yes, handed it over in person 😏]]></description>
+            <content:encoded><![CDATA[<p>Yes, handed it over in person 😏</p>
+<p>In the photo: UT2UCN (left), UT2UBC (right)</p>
+<p>🤝</p>
+<p><img decoding="async" loading="lazy" src="https://uaro.org.ua/en/assets/images/image1-424022354c8ae60902bcc5c42c427f0d.jpg" width="1080" height="1920" class="img_ev3q"></p>]]></content:encoded>
+            <category>UARO</category>
+        </item>
+        <item>
+            <title><![CDATA[The EN40CNP special callsign activity has ended]]></title>
+            <link>https://uaro.org.ua/en/blog/zavershennya-en40cnp</link>
+            <guid>https://uaro.org.ua/en/blog/zavershennya-en40cnp</guid>
+            <pubDate>Wed, 03 Jun 2026 19:12:50 GMT</pubDate>
+            <description><![CDATA[Our activity with the special callsign EN40CNP has recently ended!]]></description>
+            <content:encoded><![CDATA[<p>Our activity with the special callsign EN40CNP has recently ended!</p>
+<p>The on-air operation was dedicated to the 40th anniversary of the Chornobyl NPP tragedy and organised by the UARO NGO as part of the Chornobyl-40 award programme.
+Over two weeks (from 18 to 30 April) we made 1565 QSOs with 111 countries in SSB, CW and FT8. At weekends we even gathered hour-long pile-ups on 20 m! 🌍
+At first we planned a mini-expedition to the Exclusion Zone, but because of the fighting we could not get permission, so we worked to plan B — from home QTHs.
+Special respect to Petro (UR3PKI) for the convenient chatbot that instantly reflected our activity on the qrz.com page.</p>
+<p>Our team:
+🔹 Serhii UX2CT
+🔹 Yevhen UR0UE
+🔹 Vitalii UT0UI
+🔹 Kostiantyn UT2UCN
+🔹 Petro UR3PKI</p>
+<p>All logs are uploaded to LoTW and QRZ.
+For paper QSL cards, contact <a href="https://t.me/UARO73" target="_blank" rel="noopener noreferrer" class="">@UARO73</a> 📝</p>
+<p>Thank you to everyone who answered the general call.
+See you on the air! 73! 📡🇺🇦</p>
+<p><a href="https://www.qrz.com/db/EN40CNP" target="_blank" rel="noopener noreferrer" class="">https://www.qrz.com/db/EN40CNP</a></p>
+<p><img decoding="async" loading="lazy" src="https://uaro.org.ua/en/assets/images/image1-69fc0ddc020d265e2cf2acc073003206.jpg" width="1280" height="823" class="img_ev3q"></p>]]></content:encoded>
+            <category>UARO</category>
+        </item>
+        <item>
+            <title><![CDATA[UARO's cooperation with Sweden's radio amateur community]]></title>
+            <link>https://uaro.org.ua/en/blog/spivpracya-shvecia</link>
+            <guid>https://uaro.org.ua/en/blog/spivpracya-shvecia</guid>
+            <pubDate>Mon, 11 May 2026 05:56:03 GMT</pubDate>
+            <description><![CDATA[🇺🇦🇸🇪 UARO's cooperation with Sweden's radio amateur community]]></description>
+            <content:encoded><![CDATA[<p>🇺🇦🇸🇪 UARO's cooperation with Sweden's radio amateur community</p>
+<p>SM0AVX Tommy from Järfälla was the first to respond to our appeal for donations to Ukraine and arrived at Operation Change in Sollentuna with radio equipment. Tommy brought, among other things, a Heathkit SB-101 HF transceiver, a Tektronix oscilloscope, a rotator and a few other items. In the photo he has just unloaded them on the loading ramp. Tommy is also one of the most active members of the SK7RN CW group.</p>
+<p>Thank you for your efforts, Tommy. I hope many others will follow your example and pass on their unused equipment to radio friends in Ukraine.</p>
+<p>All the equipment will be handed over to the UARO radio club at KPI.</p>
+<p><img decoding="async" loading="lazy" src="https://uaro.org.ua/en/assets/images/image1-b2dbd2f99d548879eba3cb79917a5237.jpg" width="856" height="1280" class="img_ev3q"></p>]]></content:encoded>
+            <category>UARO</category>
+        </item>
+        <item>
+            <title><![CDATA[Results of the EN40CNP special callsign]]></title>
+            <link>https://uaro.org.ua/en/blog/pidsumky-en40cnp</link>
+            <guid>https://uaro.org.ua/en/blog/pidsumky-en40cnp</guid>
+            <pubDate>Wed, 06 May 2026 09:49:55 GMT</pubDate>
+            <description><![CDATA[Results of EN40CNP]]></description>
+            <content:encoded><![CDATA[<p>Results of EN40CNP
+First of all, I want to thank our team: Serhii UX2CT, Yevhen UR0UE and Petro UR3PKI, who put in every effort to organise the callsign and work on the air, and Leonid UT3UTX and Kostiantyn UT2UCN for their moral support. Over two weeks of activity from 18 to 30 April we made 1565 QSOs with 111 countries in SSB, CW and FT8. At weekends we even gathered hour-long pile-ups on SSB on 20 m.</p>
+<p>In general, the idea did not come up spontaneously — it was planned back before the New Year. Accordingly, we applied for this special callsign well in advance.
+The initial goal was a mini-expedition to the Chornobyl Exclusion Zone on the memorial dates, but because of the combat situation we were unable to get permission for the expedition, so we switched to plan B — working from home QTHs.
+Here, too, things did not go as smoothly as we would have liked — Andrii UT3UUE, who planned to work actively on VHF, had the cable to his antenna cut by a piece of a Shahed and dropped out, so other team members had to pick up those bands as well.
+Petro wrote a very convenient chatbot for us in which we checked in when we went on the air, so our activity was reflected on the <a href="https://www.qrz.com/db/EN40CNP" target="_blank" rel="noopener noreferrer" class="">qrz.com</a> page.
+We want to thank everyone who answered the general call, and see you on the air!</p>
+<p><img decoding="async" loading="lazy" src="https://uaro.org.ua/en/assets/images/image1-859c0e69537649f96dfa20b910da853a.jpg" width="735" height="490" class="img_ev3q"></p>]]></content:encoded>
+            <category>UARO</category>
+        </item>
+        <item>
+            <title><![CDATA[The «Chornobyl-40» award programme begins]]></title>
+            <link>https://uaro.org.ua/en/blog/start-chornobyl-40</link>
+            <guid>https://uaro.org.ua/en/blog/start-chornobyl-40</guid>
+            <pubDate>Fri, 17 Apr 2026 07:42:51 GMT</pubDate>
+            <description><![CDATA[A reminder//www.qrz.com/db/EN40CNP, so now it will be easier to «catch» the station on the air :)]]></description>
+            <content:encoded><![CDATA[<p>A reminder: tomorrow the <a href="https://deltaclub.org.ua/novosti/diplom-chornobil-40.html#section6" target="_blank" rel="noopener noreferrer" class="">Chornobyl-40</a> award programme begins, along with our special callsign EN40CNP. For convenience we have set up self-spotting on the special-callsign page <a href="https://www.qrz.com/db/EN40CNP" target="_blank" rel="noopener noreferrer" class="">https://www.qrz.com/db/EN40CNP</a>, so now it will be easier to «catch» the station on the air :)</p>]]></content:encoded>
+            <category>UARO</category>
+        </item>
+        <item>
+            <title><![CDATA[The «Chornobyl-40» memorial and our callsign EN40CNP]]></title>
+            <link>https://uaro.org.ua/en/blog/memorial-chornobyl-40</link>
+            <guid>https://uaro.org.ua/en/blog/memorial-chornobyl-40</guid>
+            <pubDate>Thu, 02 Apr 2026 09:35:16 GMT</pubDate>
+            <description><![CDATA[Attention! The «CHORNOBYL-40» MEMORIAL: 18.04.2026 – 27.04.2026.]]></description>
+            <content:encoded><![CDATA[<p>Attention! The «CHORNOBYL-40» MEMORIAL: 18.04.2026 – 27.04.2026.
+For the 40th anniversary of the Chornobyl NPP accident, the «Delta» radio club, the League of Radio Amateurs of Ukraine and the UARO NGO have established the «Chornobyl-40» award.
+To meet the award's conditions, between 18 and 27 April 2026 (inclusive) you need to collect 40 points by making radio contacts or observations with participants of the «Chornobyl-40» Memorial.
+Photos and the award conditions are on the site:
+<a href="https://deltaclub.org.ua/novosti/diplom-chornobil-40.html#section6" target="_blank" rel="noopener noreferrer" class="">https://deltaclub.org.ua/novosti/diplom-chornobil-40.html#section6</a></p>
+<p>Our callsign is EN40CNP, see you on the air!</p>]]></content:encoded>
+            <category>UARO</category>
+        </item>
+        <item>
+            <title><![CDATA[UARO engineering club: from theory to the air]]></title>
+            <link>https://uaro.org.ua/en/blog/inzhenernyy-gurtok</link>
+            <guid>https://uaro.org.ua/en/blog/inzhenernyy-gurtok</guid>
+            <pubDate>Thu, 13 Nov 2025 21:15:47 GMT</pubDate>
+            <description><![CDATA[UARO engineering club 📡: from theory to the air]]></description>
+            <content:encoded><![CDATA[<p>UARO engineering club 📡: from theory to the air</p>
+<p>🔸 Yesterday the club's first session took place! Despite the power cuts, we are gaining a profession and a fascinating hobby 🔥</p>
+<p>🔸 Topic: designing antenna and feeder systems, the theory of telecommunications.</p>
+<p>💬 The session was led by Vitalii Lazebnyk (UT0UI), a graduate of the ERITS and an instructor at Radio Satcom Group LLC.</p>
+<p>📌 Want to know more about the club and get involved? Follow the official pages of the ERITS and the club <a href="https://t.me/kost_litopys" target="_blank" rel="noopener noreferrer" class="">leader</a> under the tag #uaro 😉</p>
+<p><img decoding="async" loading="lazy" src="https://uaro.org.ua/en/assets/images/image1-e1520c7eed6462554f61db5d60300a51.jpg" width="720" height="1280" class="img_ev3q">
+<img decoding="async" loading="lazy" src="https://uaro.org.ua/en/assets/images/image2-eb3bb3eb9dc214819013f47bf2ddff8a.jpg" width="1280" height="719" class="img_ev3q">
+<img decoding="async" loading="lazy" src="https://uaro.org.ua/en/assets/images/image3-40ccae8efc8907482bec80a2ee33134a.jpg" width="1280" height="720" class="img_ev3q">
+<img decoding="async" loading="lazy" src="https://uaro.org.ua/en/assets/images/image4-cb855f3ae6fa24e6d390b081cd677fad.jpg" width="720" height="1280" class="img_ev3q"></p>]]></content:encoded>
+            <category>UARO</category>
+        </item>
+        <item>
+            <title><![CDATA[UARO club registered at the ERITS of KPI]]></title>
+            <link>https://uaro.org.ua/en/blog/gurtok-zareestrovano-kpi</link>
+            <guid>https://uaro.org.ua/en/blog/gurtok-zareestrovano-kpi</guid>
+            <pubDate>Thu, 06 Nov 2025 16:19:42 GMT</pubDate>
+            <description><![CDATA[🫡 By order No. НОД/942/25 of 05.11.2025, the «Ukrainian Amateur Radio Operators» club has been registered at the Educational and Research Institute of Telecommunication Systems (ERITS).]]></description>
+            <content:encoded><![CDATA[<p>🫡 By order No. НОД/942/25 of 05.11.2025, the «Ukrainian Amateur Radio Operators» club has been registered at the Educational and Research Institute of Telecommunication Systems (ERITS).</p>]]></content:encoded>
+            <category>UARO</category>
+        </item>
+        <item>
+            <title><![CDATA[Founding meeting of the UARO NGO]]></title>
+            <link>https://uaro.org.ua/en/blog/ustanovchi-zbory</link>
+            <guid>https://uaro.org.ua/en/blog/ustanovchi-zbory</guid>
+            <pubDate>Mon, 03 Nov 2025 18:31:52 GMT</pubDate>
+            <description><![CDATA[🫡 Founding meeting of the NGO «Ukrainian Amateur Radio Operators»]]></description>
+            <content:encoded><![CDATA[<p>🫡 Founding meeting of the NGO «Ukrainian Amateur Radio Operators»</p>
+<p>On 3 November 2025 the online founding meeting of the UARO NGO took place. The event was an important milestone in shaping the organisation's structure and defining the directions of its development.</p>
+<p>On the agenda:
+— new members were admitted to the organisation;
+— the structure of departments was approved and heads appointed:
+IT and digital transformation — Petro UR3PKI
+Sport — Serhii UX2CT
+Education and youth work — Kostiantyn UT2UCN
+SMM — Luiza UR1CED
+Community Relations (engagement with the community and its coordination) —
+Andrii UR5LLL, Serhii UR5KET / OK8KET, Artem UW5EOW, Ihor UT0UG, Serhii UR3QJ</p>
+<p>Copyright:
+All materials created by members of the NGO remain the property of their authors. Transfer of property rights is possible only with written consent. This decision protects each participant's intellectual work while upholding the principle of openness.</p>
+<p>Club radio station:
+We have come a long way to this — and now we are one step closer to our dream. Our own club radio station «Ukrainian Amateur Radio Operators» is being set up at the Educational and Research Institute of Telecommunication Systems of the Igor Sikorsky Kyiv Polytechnic Institute. It will become a place for meetings, learning and joint work on technical and amateur radio projects. New ideas will be born here, young operators will grow, and the community we are all proud of will take shape.</p>
+<p>UARO continues to develop educational, technical and communication initiatives, uniting Ukrainian radio amateurs around modern technology and shared goals.</p>]]></content:encoded>
+            <category>UARO</category>
+        </item>
+        <item>
+            <title><![CDATA[We invite you to join UARO]]></title>
+            <link>https://uaro.org.ua/en/blog/zaproshennya-do-vstupu</link>
+            <guid>https://uaro.org.ua/en/blog/zaproshennya-do-vstupu</guid>
+            <pubDate>Thu, 11 Sep 2025 18:07:38 GMT</pubDate>
+            <description><![CDATA[👋 Dear colleagues and friends!]]></description>
+            <content:encoded><![CDATA[<p>👋 Dear colleagues and friends!
+We invite you to join the NGO «Ukrainian Amateur Radio Operators». This is a great chance to become part of a community that unites like-minded people and develops amateur radio in Ukraine.</p>
+<p>✅ To apply, follow this <a href="https://uaro.org.ua/membership" target="_blank" rel="noopener noreferrer" class="">link</a></p>
+<p>✅ After the next founding meeting and confirmation of membership, each member will be issued a membership card of the public organisation.</p>
+<p>✅ Before joining, please read the organisation's Charter and be ready to take part in our shared work.</p>
+<p>✅ Any licensed radio amateur can join.</p>
+<p>ℹ️ The card is produced for a symbolic fee (roughly up to 100 UAH).</p>
+<p>📑 Briefly about membership
+<a href="https://uaro.org.ua/assets/files/charter-557906be573f4a044c5e54058aca179b.pdf" target="_blank" rel="noopener noreferrer" class="">In accordance with clause 4 of the Charter of the NGO «Ukrainian Amateur Radio Operators»</a></p>]]></content:encoded>
+            <category>UARO</category>
+        </item>
+        <item>
+            <title><![CDATA[Our handbook is officially registered]]></title>
+            <link>https://uaro.org.ua/en/blog/posibnyk-zareestrovano</link>
+            <guid>https://uaro.org.ua/en/blog/posibnyk-zareestrovano</guid>
+            <pubDate>Sun, 03 Aug 2025 15:21:46 GMT</pubDate>
+            <description><![CDATA[Our handbook has been officially registered in accordance with copyright law.]]></description>
+            <content:encoded><![CDATA[<p>Our handbook has been officially registered in accordance with copyright law.</p>
+<p><img decoding="async" loading="lazy" src="https://uaro.org.ua/en/assets/images/image1-6ad3bd3ed44eb125bc9becc1fc23ae39.jpg" width="720" height="1280" class="img_ev3q"></p>]]></content:encoded>
+            <category>UARO</category>
+        </item>
+        <item>
+            <title><![CDATA[Communications for the Defence Forces — about our everyday work]]></title>
+            <link>https://uaro.org.ua/en/blog/zvyazok-dlya-syl-oborony</link>
+            <guid>https://uaro.org.ua/en/blog/zvyazok-dlya-syl-oborony</guid>
+            <pubDate>Wed, 09 Jul 2025 13:36:14 GMT</pubDate>
+            <description><![CDATA[Article 3.2.15 of the Charter of the NGO «Ukrainian Amateur Radio Operators»:]]></description>
+            <content:encoded><![CDATA[<p>Article 3.2.15 of the Charter of the NGO «Ukrainian Amateur Radio Operators»:
+«Assisting the Defence Forces of Ukraine in organising radio communication, and providing material and technical support to the Armed Forces of Ukraine in the field of communications.»</p>
+<p>This is not just a line in a document.
+It is about our everyday work.
+About everyone who helps UARO — with their hands, their knowledge, their donations.</p>
+<p>Thank you for being with us.
+Together — on the air.
+Together — to victory.</p>
+<p><img decoding="async" loading="lazy" src="https://uaro.org.ua/en/assets/images/image1-627f68e79c57a52957ed463ee09a82bc.jpg" width="931" height="1280" class="img_ev3q"></p>]]></content:encoded>
+            <category>UARO</category>
+        </item>
+    </channel>
+</rss>

@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkuaro_org_ua||=[]).push([[8947],{6600(e){e.exports=JSON.parse('{"authors":[{"name":"Petro","title":"UR3PKI","url":"https://cyberdev.space","key":"ur3pki","page":null,"count":29}]}')}}]);

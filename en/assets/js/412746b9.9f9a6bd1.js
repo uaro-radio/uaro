@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkuaro_org_ua||=[]).push([[6402],{7891(e){e.exports=JSON.parse('{"metadata":{"permalink":"/en/blog/page/2","page":2,"postsPerPage":10,"totalPages":3,"totalCount":29,"previousPage":"/en/blog","nextPage":"/en/blog/page/3","blogDescription":"News from the Ukrainian Amateur Radio Operators NGO","blogTitle":"News"}}')}}]);

@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkuaro_org_ua||=[]).push([[1903],{1912(s){s.exports=JSON.parse('{"blogBasePath":"/en/blog","blogTitle":"News","authorsListPath":"/en/blog/authors"}')}}]);
