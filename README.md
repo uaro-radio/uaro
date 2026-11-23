@@ -26,16 +26,15 @@ This command generates static content into the `build` directory and can be serv
 
 ### Deployment
 
-Using SSH:
+Every push to `main` is deployed automatically. GitHub Actions
+(`.github/workflows/deploy-build.yml`) builds the site and pushes the finished
+`build/` as a single commit to the `deploy` branch (force-pushed, so its history
+does not grow). On the server a cron job runs `~/bin/prebuilt-deploy.sh` every
+two minutes: when `deploy` has a new commit, it unpacks it with `git archive`
+into `build.new` and swaps it in for `build`. The server builds nothing.
+
+To rebuild without a new commit:
 
 ```
-$ USE_SSH=true yarn deploy
+$ gh workflow run deploy-build.yml
 ```
-
-Not using SSH:
-
-```
-$ GIT_USER=<Your GitHub username> yarn deploy
-```
-
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
