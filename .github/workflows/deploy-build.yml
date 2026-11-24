@@ -43,16 +43,19 @@ jobs:
       - if: steps.modules.outputs.cache-hit != 'true'
         run: npm ci --no-audit --no-fund
 
-      # Кеш webpack лежить у node_modules/.cache, а npm ci стирає node_modules,
-      # тому відновлюємо його після встановлення. Обидві мови збираються
-      # паралельно (tools/build.js), кеш у кожної свій.
+      # Кеш Rspack лежить у node_modules/.cache, а npm ci стирає node_modules,
+      # тому відновлюємо його після встановлення. Застарілим він не стає —
+      # Rspack перевіряє його сам. Обидві мови збираються паралельно
+      # (tools/build.js), кеш у кожної свій. Префікс ключа інший, ніж за
+      # webpack: інакше кеш webpack відновлювався б і зберігався разом із
+      # кешем Rspack без кінця, хоч його ніхто вже не читає.
       - uses: actions/cache@v6
         with:
           path: node_modules/.cache
-          key: webpack-node26-${{ hashFiles('package-lock.json') }}-${{ github.sha }}
+          key: rspack-node26-${{ hashFiles('package-lock.json') }}-${{ github.sha }}
           restore-keys: |
-            webpack-node26-${{ hashFiles('package-lock.json') }}-
-            webpack-node26-
+            rspack-node26-${{ hashFiles('package-lock.json') }}-
+            rspack-node26-
 
       # Мови паралельно, кожна своїм процесом (tools/build.js). Локальний
       # `npm run build` лишається звичайним.

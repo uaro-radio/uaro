@@ -1,5 +1,5 @@
 /**
- * Додає до назви кешу webpack теку зі згенерованим кодом.
+ * Додає до назви (у Rspack — до версії) кешу збірки теку зі згенерованим кодом.
  *
  * tools/build.js збирає мови паралельно, і кожна пише згенерований код
  * (маршрути, переклади) у свою теку: `.docusaurus-uk`, `.docusaurus-en`.
@@ -18,6 +18,11 @@ module.exports = function cachePerGeneratedDirPlugin() {
     return {
         name: 'cache-per-generated-dir',
         configureWebpack(config) {
+            // Rspack (Docusaurus Faster): назви кешу немає, лише версія.
+            const rspackCache = config.experiments && config.experiments.cache;
+            if (rspackCache && typeof rspackCache === 'object' && rspackCache.version) {
+                return {experiments: {cache: {version: `${rspackCache.version}-${GENERATED_DIR}`}}};
+            }
             if (!config.cache || typeof config.cache !== 'object' || !config.cache.name) {
                 return {};
             }

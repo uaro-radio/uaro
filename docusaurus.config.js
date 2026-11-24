@@ -25,6 +25,15 @@ const config = {
 
   onBrokenLinks: 'throw',
 
+  // Docusaurus Faster: Rspack, SWC і Lightning CSS замість webpack, Babel і
+  // cssnano, постійний кеш Rspack і генерація сторінок у кількох потоках.
+  // Потоки вимагають прапорця v4: він прибирає `head` з даних postBuild, а
+  // жоден наш плагін postBuild не має.
+  future: {
+    v4: {removeLegacyPostBuildHeadAttribute: true},
+    faster: true,
+  },
+
   markdown: {
     hooks: {
       onBrokenMarkdownLinks: 'warn',
