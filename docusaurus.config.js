@@ -45,6 +45,11 @@ const config = {
       en: {
         label: '🇬🇧 English',
         htmlLang: 'en-US',
+        // baseUrl явно, бо мови збираються окремими процесами
+        // (tools/build.js), а `docusaurus build --locale en` без нього
+        // вважає сайт одномовним: кладе англійську в корінь збірки з
+        // адресами без /en/.
+        baseUrl: '/en/',
       },
     },
   },
@@ -54,6 +59,8 @@ const config = {
     // Останні новини для головної сторінки: плагін блогу глобальних даних
     // не віддає, тому збираємо їх самі на етапі збірки.
     ['./plugins/recent-posts', {count: 4}],
+    // Свій кеш збірки для кожної мови в паралельній збірці (tools/build.js).
+    './plugins/cache-per-generated-dir',
   ],
 
   presets: [

@@ -19,3 +19,7 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# Паралельна збірка мов (tools/build.js)
+/.build-locales
+/.docusaurus-*
