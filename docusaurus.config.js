@@ -25,6 +25,15 @@ const config = {
 
   onBrokenLinks: 'throw',
 
+  // Docusaurus Faster: Rspack, SWC і Lightning CSS замість webpack, Babel і
+  // cssnano, постійний кеш Rspack і генерація сторінок у кількох потоках.
+  // Потоки вимагають прапорця v4: він прибирає `head` з даних postBuild, а
+  // жоден наш плагін postBuild не має.
+  future: {
+    v4: {removeLegacyPostBuildHeadAttribute: true},
+    faster: true,
+  },
+
   markdown: {
     hooks: {
       onBrokenMarkdownLinks: 'warn',
@@ -45,6 +54,11 @@ const config = {
       en: {
         label: '🇬🇧 English',
         htmlLang: 'en-US',
+        // baseUrl явно, бо мови збираються окремими процесами
+        // (tools/build.js), а `docusaurus build --locale en` без нього
+        // вважає сайт одномовним: кладе англійську в корінь збірки з
+        // адресами без /en/.
+        baseUrl: '/en/',
       },
     },
   },
@@ -54,6 +68,8 @@ const config = {
     // Останні новини для головної сторінки: плагін блогу глобальних даних
     // не віддає, тому збираємо їх самі на етапі збірки.
     ['./plugins/recent-posts', {count: 4}],
+    // Свій кеш збірки для кожної мови в паралельній збірці (tools/build.js).
+    './plugins/cache-per-generated-dir',
   ],
 
   presets: [

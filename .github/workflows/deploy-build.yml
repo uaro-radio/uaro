@@ -29,21 +29,37 @@ jobs:
       - uses: actions/setup-node@v7
         with:
           node-version: 26
-          cache: npm
 
-      - run: npm ci --no-audit --no-fund
+      # node_modules цілком, без кешу збірки всередині: розпакувати його
+      # швидше, ніж npm ci з кешем npm. npm ci — лише коли змінився package-lock.
+      - id: modules
+        uses: actions/cache@v6
+        with:
+          path: |
+            node_modules
+            !node_modules/.cache
+          key: modules-node26-${{ hashFiles('package-lock.json') }}
 
-      # Кеш webpack лежить у node_modules/.cache, а npm ci стирає node_modules,
-      # тому відновлюємо його після встановлення.
+      - if: steps.modules.outputs.cache-hit != 'true'
+        run: npm ci --no-audit --no-fund
+
+      # Кеш Rspack лежить у node_modules/.cache, а npm ci стирає node_modules,
+      # тому відновлюємо його після встановлення. Застарілим він не стає —
+      # Rspack перевіряє його сам. Обидві мови збираються паралельно
+      # (tools/build.js), кеш у кожної свій. Префікс ключа інший, ніж за
+      # webpack: інакше кеш webpack відновлювався б і зберігався разом із
+      # кешем Rspack без кінця, хоч його ніхто вже не читає.
       - uses: actions/cache@v6
         with:
           path: node_modules/.cache
-          key: webpack-node26-${{ hashFiles('package-lock.json') }}-${{ github.sha }}
+          key: rspack-node26-${{ hashFiles('package-lock.json') }}-${{ github.sha }}
           restore-keys: |
-            webpack-node26-${{ hashFiles('package-lock.json') }}-
-            webpack-node26-
+            rspack-node26-${{ hashFiles('package-lock.json') }}-
+            rspack-node26-
 
-      - run: npm run build
+      # Мови паралельно, кожна своїм процесом (tools/build.js). Локальний
+      # `npm run build` лишається звичайним.
+      - run: npm run build:prod
 
       # Щоразу новий корінь і force-push: історія гілки не росте, у ній завжди
       # один коміт. Сирцевий коміт — у повідомленні, сервер пише його в лог.
@@ -58,6 +74,10 @@ jobs:
           git init -q -b deploy
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git remote add origin "https://x-access-token:${TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          # Попередня збірка — точка відліку: тоді push відправляє лише змінені
+          # файли, а не всю збірку. Новий коміт однаково без батька.
+          git fetch -q --depth=1 origin deploy || true
           git add -A
           git commit -q -m "build ${GITHUB_SHA}"
-          git push -q -f "https://x-access-token:${TOKEN}@github.com/${GITHUB_REPOSITORY}.git" deploy
+          git push -q -f origin deploy

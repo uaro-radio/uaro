@@ -13,10 +13,10 @@ import our_tutorial_2 from '@site/src/pages/img/our_tutorial_2.jpg';
   <img src={our_tutorial_2} alt="2" width="300"/>
 </p>
 
-<p align="center">
+<div align="center">
   Посилання на калькулятор антени:<br />
   <a href="/docs/calculators/flower_pot">Flower pot</a>
-</p>
+</div>
 
 ## Від авторів
 
